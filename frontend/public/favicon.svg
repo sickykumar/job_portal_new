@@ -1,48 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
   <defs>
-    <linearGradient id="pkTop" x1="0" y1="0" x2="48" y2="24" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#38BDF8"/>
-      <stop offset="50%" stopColor="#818CF8"/>
-      <stop offset="100%" stopColor="#C084FC"/>
-    </linearGradient>
-    <linearGradient id="pkLeft" x1="6" y1="12" x2="24" y2="44" gradientUnits="userSpaceOnUse">
+    <!-- Ultra-vibrant background gradient (visible on both dark and light browser tabs) -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stopColor="#4F46E5"/>
-      <stop offset="100%" stopColor="#1E1B4B"/>
+      <stop offset="50%" stopColor="#2563EB"/>
+      <stop offset="100%" stopColor="#0284C7"/>
     </linearGradient>
-    <linearGradient id="pkPath" x1="20" y1="40" x2="42" y2="8" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#06B6D4"/>
-      <stop offset="60%" stopColor="#10B981"/>
+
+    <!-- Top facet with bright reflection -->
+    <linearGradient id="pkWhiteGlow" x1="0" y1="0" x2="48" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#FFFFFF"/>
+      <stop offset="100%" stopColor="#E0F2FE"/>
+    </linearGradient>
+
+    <!-- Glowing Cyan/Emerald dynamic pathway vector -->
+    <linearGradient id="pkNeonPath" x1="16" y1="36" x2="40" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#38BDF8"/>
+      <stop offset="50%" stopColor="#2DD4BF"/>
       <stop offset="100%" stopColor="#34D399"/>
     </linearGradient>
-    <radialGradient id="pkStar" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stopColor="#FFFFFF"/>
-      <stop offset="40%" stopColor="#67E8F9"/>
-      <stop offset="100%" stopColor="#06B6D4" stopOpacity="0"/>
-    </radialGradient>
-    <filter id="pkShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#000" floodOpacity="0.5"/>
+
+    <!-- High-contrast crisp drop shadow -->
+    <filter id="pkDrop" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="2" floodColor="#0F172A" floodOpacity="0.5"/>
     </filter>
   </defs>
 
-  <!-- 3D Beveled Rounded Container -->
-  <rect width="48" height="48" rx="14" fill="#0B1120"/>
-  <rect x="1" y="1" width="46" height="46" rx="13" stroke="url(#pkTop)" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Bright, eye-catching 3D Squircle Base Badge -->
+  <rect width="48" height="48" rx="14" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle inner bevel highlight ring for 3D look -->
+  <rect x="1.5" y="1.5" width="45" height="45" rx="12.5" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.5"/>
 
-  <!-- Base 3D Plane -->
-  <path d="M8 28L22 36L40 26L26 18L8 28Z" fill="url(#pkLeft)" opacity="0.35"/>
+  <!-- High-contrast crisp white 'P' (Path) Structure -->
+  <!-- Left Vertical Spine of 'P' -->
+  <rect x="10" y="10" width="7.5" height="28" rx="3.75" fill="url(#pkWhiteGlow)" filter="url(#pkDrop)"/>
 
-  <!-- Isometric 'P' Pillar -->
-  <path d="M10 14L18 10V34L10 38V14Z" fill="url(#pkLeft)" filter="url(#pkShadow)"/>
-  <path d="M10 14L18 10L26 14L18 18L10 14Z" fill="url(#pkTop)"/>
+  <!-- Curved Head of 'P' -->
+  <path d="M14 10H26C31.5 10 35 13.8 35 18.5C35 23.2 31.5 27 26 27H14V10Z" fill="url(#pkWhiteGlow)" filter="url(#pkDrop)"/>
+  <!-- Hollow Inner cutout of 'P' revealing vibrant base -->
+  <path d="M17.5 15.5H25C27.5 15.5 29.5 16.8 29.5 18.5C29.5 20.2 27.5 21.5 25 21.5H17.5V15.5Z" fill="url(#bgGrad)"/>
 
-  <!-- 'P' Loop -->
-  <path d="M18 10H30C34.4 10 37 13.5 35 17.5C33.2 21 29 23 24 23H18V10Z" fill="url(#pkTop)" filter="url(#pkShadow)"/>
+  <!-- 3D Neon "Khojo" Ascending Rocket/Pathway Arrow (Dynamic Overlay) -->
+  <path d="M20 37L37 20L32.5 16L17 31.5L20 37Z" fill="url(#pkNeonPath)" filter="url(#pkDrop)"/>
+  <path d="M37 20L41 10L31 14L34 17L37 20Z" fill="#34D399" filter="url(#pkDrop)"/>
 
-  <!-- Ascending Khojo Pathway Vector -->
-  <path d="M22 38L38 18L33 14L19 32L22 38Z" fill="url(#pkPath)" filter="url(#pkShadow)"/>
-  <path d="M38 18L42 8L32 12L34.5 15L38 18Z" fill="#34D399"/>
-
-  <!-- Guiding North Star -->
-  <circle cx="42" cy="8" r="5" fill="url(#pkStar)"/>
-  <circle cx="42" cy="8" r="1.8" fill="#FFFFFF"/>
+  <!-- Luminous Guiding North Star (Polaris) at Destination -->
+  <circle cx="41" cy="10" r="4.5" fill="#38BDF8" opacity="0.6"/>
+  <circle cx="41" cy="10" r="2.2" fill="#FFFFFF"/>
 </svg>

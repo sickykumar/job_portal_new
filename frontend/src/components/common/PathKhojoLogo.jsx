@@ -40,10 +40,10 @@ export const PathKhojoLogo = ({
       style={{ width: currentSize.icon, height: currentSize.icon }}
       className="relative flex items-center justify-center shrink-0 rounded-2xl bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-400 p-[1.5px] shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 group-hover:scale-105 transition-all duration-300"
     >
-      {/* 3D Glass Surface Container */}
-      <div className="w-full h-full rounded-[14px] bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 flex items-center justify-center overflow-hidden relative shadow-inner">
-        {/* Subtle 3D Radial Highlight */}
-        <div className="absolute inset-0 bg-radial from-sky-400/15 via-transparent to-transparent opacity-80 pointer-events-none" />
+      {/* 3D Surface Container: Deep vibrant indigo/slate with bright inner border */}
+      <div className="w-full h-full rounded-[14px] bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border border-white/20 flex items-center justify-center overflow-hidden relative shadow-inner">
+        {/* Luminous Center Highlight */}
+        <div className="absolute inset-0 bg-radial from-sky-400/25 via-indigo-500/10 to-transparent pointer-events-none" />
 
         <svg
           viewBox="0 0 48 48"
