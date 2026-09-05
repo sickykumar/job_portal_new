@@ -32,7 +32,9 @@ const getResendClient = () => {
  */
 const sendViaResend = async ({ to, subject, html, text }) => {
   const client = getResendClient();
-  const from = process.env.RESEND_FROM || "PathKhojo <onboarding@resend.dev>";
+  let from = (process.env.RESEND_FROM || "PathKhojo <careers@sickykumar.in>").trim();
+  // Strip any accidental wrapping quotes (e.g. "..." or '...') from UI inputs
+  from = from.replace(/^["']+|["']+$/g, "").trim();
 
   const { data, error } = await client.emails.send({
     from,
