@@ -106,12 +106,13 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, mobileOpen, setMobileOpen }) => 
         `}
       >
         {/* Top Header: Logo + Collapse Toggle */}
-        <div className="h-16 flex items-center justify-between px-3 border-b border-slate-100 dark:border-slate-800/60 flex-shrink-0">
-          <div className="flex items-center gap-2 overflow-hidden">
+        <div className={`h-16 flex items-center border-b border-slate-100 dark:border-slate-800/60 flex-shrink-0 ${
+          isCollapsed ? "px-2 justify-center gap-1.5" : "px-3 justify-between"
+        }`}>
+          <div className="flex items-center shrink-0">
             <PathKhojoLogo
-              size="sm"
+              size={isCollapsed ? "xs" : "sm"}
               showText={!isCollapsed}
-              showSubtitle={!isCollapsed}
               asLink={true}
               to="/"
             />
@@ -121,9 +122,9 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, mobileOpen, setMobileOpen }) => 
           <button
             onClick={toggleCollapse}
             title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-            className="hidden lg:flex items-center justify-center w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors"
+            className="hidden lg:flex items-center justify-center w-6 h-6 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors shrink-0"
           >
-            {isCollapsed ? <ChevronsRight className="w-4 h-4" /> : <ChevronsLeft className="w-4 h-4" />}
+            {isCollapsed ? <ChevronsRight className="w-3.5 h-3.5" /> : <ChevronsLeft className="w-4 h-4" />}
           </button>
 
           {/* Mobile Close Button */}
