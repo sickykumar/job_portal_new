@@ -136,7 +136,7 @@ describe("Validation Schemas", () => {
   it("should disallow admin registration in registerSchema but allow admin in loginSchema", () => {
     const adminRegisterData = {
       fullname: "Super Admin",
-      email: "admin@nexhire.com",
+      email: "admin@pathkhojo.in",
       phoneNumber: "+1-555-9999",
       password: "adminpassword123",
       role: "admin",
@@ -146,7 +146,7 @@ describe("Validation Schemas", () => {
 
     // Admin login is permitted
     const adminLoginData = {
-      email: "admin@nexhire.com",
+      email: "admin@pathkhojo.in",
       password: "adminpassword123",
       role: "admin",
     };

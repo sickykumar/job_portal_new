@@ -431,7 +431,7 @@ export const careerCoachAdvice = async (req, res, next) => {
     const userSkills = (user?.profile?.skills || []).join(", ") || "Modern Web & Software Engineering";
     const userBio = user?.profile?.bio || "Software Engineer & Builder";
 
-    const prompt = `You are NexHire's AI Career Operating Coach.
+    const prompt = `You are PathKhojo's AI Career Operating Coach.
 User Profile:
 Name: ${userName}
 Skills: ${userSkills}

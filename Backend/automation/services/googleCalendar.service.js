@@ -30,7 +30,7 @@ export const generateIcsContent = ({
   return [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//NexHire Recruitment Platform//Interview Scheduler//EN",
+    "PRODID:-//PathKhojo Recruitment Platform//Interview Scheduler//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:REQUEST",
     "BEGIN:VEVENT",
@@ -41,7 +41,7 @@ export const generateIcsContent = ({
     `SUMMARY:${summary}`,
     `DESCRIPTION:${description.replace(/\n/g, "\\n")}`,
     `LOCATION:${location}`,
-    `ORGANIZER;CN=${organizerName || "NexHire Hiring Lead"}:mailto:${organizerEmail || "careers@nexhire.com"}`,
+    `ORGANIZER;CN=${organizerName || "PathKhojo Hiring Lead"}:mailto:${organizerEmail || "careers@sickykumar.in"}`,
     `ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN=${attendeeName || "Candidate"}:mailto:${attendeeEmail}`,
     "STATUS:CONFIRMED",
     "SEQUENCE:0",
@@ -111,7 +111,7 @@ export const createCalendarInterview = async ({
 }) => {
   const startDate = new Date(startDateTime);
   const endDate = new Date(startDate.getTime() + durationMinutes * 60 * 1000);
-  const eventUid = `nexhire-${Date.now()}-${crypto.randomBytes(4).toString("hex")}@nexhire.com`;
+  const eventUid = `pathkhojo-${Date.now()}-${crypto.randomBytes(4).toString("hex")}@sickykumar.in`;
 
   // Fallback meeting link
   const defaultMeetCode = `${crypto.randomBytes(3).toString("hex")}-${crypto.randomBytes(4).toString("hex")}-${crypto.randomBytes(3).toString("hex")}`;

@@ -2,8 +2,8 @@ import { Hackathon } from "../models/hackathon.model.js";
 
 const DEFAULT_HACKATHONS = [
   {
-    title: "NexHire AI Autonomous Agent Hackathon 2026",
-    host: "NexHire Labs & Google Cloud",
+    title: "PathKhojo AI Autonomous Agent Hackathon 2026",
+    host: "PathKhojo Labs & Google Cloud",
     bannerGradient: "from-blue-600 via-indigo-600 to-cyan-500",
     prizePool: "₹5,00,000",
     firstPrize: "₹2,50,000 + Google Cloud Credits",

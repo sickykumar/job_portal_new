@@ -12,7 +12,7 @@ const fadeUp = {
 
 const CareerStrategistTab = ({ user, onRequireLogin }) => {
   const [guestCount, setGuestCount] = useState(() => {
-    return parseInt(localStorage.getItem("nexhire_guest_ai_count") || "0", 10);
+    return parseInt(localStorage.getItem("pathkhojo_guest_ai_count") || "0", 10);
   });
 
   const [messages, setMessages] = useState([
@@ -78,7 +78,7 @@ const CareerStrategistTab = ({ user, onRequireLogin }) => {
       }
       const newCount = guestCount + 1;
       setGuestCount(newCount);
-      localStorage.setItem("nexhire_guest_ai_count", newCount.toString());
+      localStorage.setItem("pathkhojo_guest_ai_count", newCount.toString());
     }
 
     setInputQuestion("");

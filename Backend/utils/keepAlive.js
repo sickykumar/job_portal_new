@@ -83,7 +83,7 @@ export const startKeepAlive = (options = {}) => {
       const response = await fetch(targetPingUrl, {
         method: "GET",
         headers: {
-          "User-Agent": "NexHire-AutoKeepAlive/1.0",
+          "User-Agent": "PathKhojo-AutoKeepAlive/1.0",
           "X-Keep-Alive-Ping": "true",
         },
       });

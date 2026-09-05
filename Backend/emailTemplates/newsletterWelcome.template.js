@@ -4,7 +4,7 @@
  * ============================================================================
  * 
  * Target Recipients:
- *   - Any visitor or user who subscribes to NexHire Tech Alerts newsletter.
+ *   - Any visitor or user who subscribes to PathKhojo Tech Alerts newsletter.
  * 
  * Trigger Point:
  *   - Backend/controllers/newsletter.controller.js -> subscribe()
@@ -33,10 +33,10 @@ export const newsletterWelcomeHTML = (email) => {
           <tr>
             <td style="background:linear-gradient(135deg,#4f46e5,#7c3aed,#06b6d4); padding:36px 32px; text-align:center;">
               <h1 style="margin:0; color:#ffffff; font-size:28px; font-weight:800; letter-spacing:-0.5px;">
-                Nex<span style="color:#22d3ee;">Hire</span>
+                Path<span style="color:#22d3ee;">Khojo</span>
               </h1>
               <p style="margin:6px 0 0; color:rgba(255,255,255,0.85); font-size:12px; text-transform:uppercase; letter-spacing:2px; font-weight:600;">
-                Intelligent Career Alerts
+                Career Navigation Platform
               </p>
             </td>
           </tr>
@@ -80,7 +80,7 @@ export const newsletterWelcomeHTML = (email) => {
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top:28px;">
                 <tr>
                   <td align="center">
-                    <a href="https://nexhire.com/jobs" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#ffffff; text-decoration:none; padding:14px 36px; border-radius:12px; font-size:14px; font-weight:700; letter-spacing:0.3px;">
+                    <a href="https://pathkhojo.sickykumar.in/jobs" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#ffffff; text-decoration:none; padding:14px 36px; border-radius:12px; font-size:14px; font-weight:700; letter-spacing:0.3px;">
                       Browse Open Positions →
                     </a>
                   </td>

@@ -327,7 +327,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Phone</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">+91 80-NEXHIRE-01</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">+91 80-PATHKHOJO-1</p>
                   <p className="text-[10px] text-slate-400">Mon–Fri, 9 AM – 6 PM IST</p>
                 </div>
               </div>

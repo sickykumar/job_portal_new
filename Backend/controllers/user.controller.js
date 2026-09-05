@@ -53,7 +53,7 @@ const issueAuthSession = (res, user, message = "Authenticated successfully", req
   if (user.role.toLowerCase() !== "admin") {
     sendEmail({
       to: user.email,
-      subject: `🛡️ Security Alert: New Login to your PathKhojo Account`,
+      subject: `Security alert: New sign-in to your PathKhojo account`,
       html: loginSecurityAlertHTML({
         fullname: user.fullname,
         email: user.email,
@@ -61,6 +61,7 @@ const issueAuthSession = (res, user, message = "Authenticated successfully", req
         ipAddress,
         userAgent,
       }),
+      text: `Security Alert: A new login to your PathKhojo account (${user.email}) was detected at ${new Date().toLocaleString("en-IN")}. If this was you, you can safely ignore this alert. If not, please secure your account immediately at https://pathkhojo.sickykumar.in/profile`,
     }).catch((err) => console.error("[Login Security Alert] Email failed:", err.message));
   }
 
@@ -161,7 +162,7 @@ export const register = async (req, res, next) => {
     // Send Welcome & Greeting Email with role-tailored recommendations in background
     sendEmail({
       to: newUser.email,
-      subject: `🎉 Welcome to NexHire, ${newUser.fullname}! Recommended next steps for you`,
+      subject: `🎉 Welcome to PathKhojo, ${newUser.fullname}! Recommended next steps for you`,
       html: registrationWelcomeHTML({
         fullname: newUser.fullname,
         email: newUser.email,
@@ -285,7 +286,7 @@ export const login = async (req, res, next) => {
 
     sendEmail({
       to: user.email,
-      subject: `🔑 Your NexHire Login Verification Code: ${generatedOtp}`,
+      subject: `🔑 Your PathKhojo Login Verification Code: ${generatedOtp}`,
       html: loginOtpTemplate({ name: user.fullname, otp: generatedOtp }),
     }).catch((err) => console.error("[Login OTP] Email send error:", err.message));
 
@@ -397,7 +398,7 @@ export const resendLoginOtp = async (req, res, next) => {
 
     sendEmail({
       to: cleanEmail,
-      subject: `🔑 Your New NexHire Login Code: ${generatedOtp}`,
+      subject: `🔑 Your New PathKhojo Login Code: ${generatedOtp}`,
       html: loginOtpTemplate({ name: user.fullname, otp: generatedOtp }),
     }).catch((err) => console.error("[Resend OTP] Failed to send email:", err.message));
 
@@ -448,7 +449,7 @@ export const forgotPasswordRequest = async (req, res, next) => {
 
     sendEmail({
       to: cleanEmail,
-      subject: `🛡️ NexHire Password Reset Code: ${resetOtp}`,
+      subject: `🛡️ PathKhojo Password Reset Code: ${resetOtp}`,
       html: forgotPasswordOtpTemplate({ name: user.fullname, otp: resetOtp }),
     }).catch((err) => console.error("[Forgot Password] Email send failed:", err.message));
 
@@ -590,7 +591,7 @@ export const forgotPasswordReset = async (req, res, next) => {
     // Send confirmation security email
     sendEmail({
       to: cleanEmail,
-      subject: "🔒 Security Alert: Your NexHire Password Was Changed Successfully",
+      subject: "🔒 Security Alert: Your PathKhojo Password Was Changed Successfully",
       html: passwordChangedTemplate({
         name: user.fullname,
         changedAt: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),

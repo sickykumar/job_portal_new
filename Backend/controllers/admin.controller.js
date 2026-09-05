@@ -445,7 +445,7 @@ export const resolveTicket = async (req, res, next) => {
 
     sendEmail({
       to: contact.email,
-      subject: `✅ NexHire Support: Ticket ${contact.ticketId} [${status.toUpperCase()}]`,
+      subject: `✅ PathKhojo Support: Ticket ${contact.ticketId} [${status.toUpperCase()}]`,
       html: contactResolutionHTML(emailPayload),
     }).catch((err) =>
       console.error("[Admin] Resolution email delivery failed:", err.message)

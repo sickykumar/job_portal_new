@@ -58,7 +58,7 @@ function MainContent() {
 
   // Sidebar expand/collapse state (persisted in localStorage)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
-    return localStorage.getItem("nexhire_sidebar_collapsed") === "true";
+    return localStorage.getItem("pathkhojo_sidebar_collapsed") === "true";
   });
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 

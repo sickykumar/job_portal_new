@@ -27,7 +27,7 @@ const wrapHtml = ({ title, preheader, bodyContent, actionUrl, actionText }) => {
     ${preheader || title}
   </div>
   <div class="card">
-    <div class="badge">NexHire Automation</div>
+    <div class="badge">PathKhojo Automation</div>
     <h1>${title}</h1>
     ${bodyContent}
     ${
@@ -36,8 +36,8 @@ const wrapHtml = ({ title, preheader, bodyContent, actionUrl, actionText }) => {
         : ""
     }
     <div class="footer">
-      This is an automated system notification from NexHire Career Intelligence Platform.<br>
-      © ${new Date().getFullYear()} NexHire Inc. All rights reserved.
+      This is an automated system notification from PathKhojo Career Navigation Platform.<br>
+      © ${new Date().getFullYear()} PathKhojo Inc. All rights reserved.
     </div>
   </div>
 </body>
@@ -170,7 +170,7 @@ export const dispatchApplicationStatusEmail = async ({
               ? `<div class="highlight-box"><p style="margin:0 0 4px 0; font-size:13px; color:#E2E8F0;"><strong>Constructive Feedback:</strong></p><p style="margin:0; font-size:13px; color:#94A3B8;">${feedback}</p></div>`
               : ""
           }
-          <p>We encourage you to explore other open roles on NexHire and wish you every success in your career journey.</p>
+          <p>We encourage you to explore other open roles on PathKhojo and wish you every success in your career journey.</p>
         `;
         actionText = "Explore Other Open Roles";
         actionUrl = `${clientUrl}/jobs`;

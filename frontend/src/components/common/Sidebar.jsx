@@ -66,7 +66,7 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, mobileOpen, setMobileOpen }) => 
   const toggleCollapse = () => {
     const next = !isCollapsed;
     setIsCollapsed(next);
-    localStorage.setItem("nexhire_sidebar_collapsed", next ? "true" : "false");
+    localStorage.setItem("pathkhojo_sidebar_collapsed", next ? "true" : "false");
   };
 
   // Primary CTA Button Action

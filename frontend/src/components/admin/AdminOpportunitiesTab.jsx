@@ -62,7 +62,7 @@ const AdminOpportunitiesTab = () => {
   // Hackathon Creation Form State
   const [hackForm, setHackForm] = useState({
     title: "",
-    host: "NexHire Technologies",
+    host: "PathKhojo Technologies",
     prizePool: "₹5,00,000",
     firstPrize: "₹2,50,000",
     mode: "Online (Global)",
@@ -136,7 +136,7 @@ const AdminOpportunitiesTab = () => {
       setShowHackathonModal(false);
       setHackForm({
         title: "",
-        host: "NexHire Technologies",
+        host: "PathKhojo Technologies",
         prizePool: "₹5,00,000",
         firstPrize: "₹2,50,000",
         mode: "Online (Global)",

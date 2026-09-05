@@ -257,12 +257,12 @@ export const updateStatus = async (req, res, next) => {
 
           const calendarResult = await createCalendarInterview({
             title: `Technical Interview: ${candidateApp.applicant?.fullname || "Candidate"} | ${application.job?.title || "Role"}`,
-            description: `NexHire Interview for ${application.job?.title || "Role"}.\nNotes: ${feedback || details.notes || "None"}`,
+            description: `PathKhojo Interview for ${application.job?.title || "Role"}.\nNotes: ${feedback || details.notes || "None"}`,
             startDateTime,
             durationMinutes: 45,
-            recruiterEmail: recruiter?.email || "recruiter@nexhire.com",
+            recruiterEmail: recruiter?.email || "careers@sickykumar.in",
             recruiterName: recruiter?.fullname || "Recruiter",
-            candidateEmail: candidateApp.applicant?.email || "candidate@nexhire.com",
+            candidateEmail: candidateApp.applicant?.email || "candidate@sickykumar.in",
             candidateName: candidateApp.applicant?.fullname || "Candidate",
           });
 

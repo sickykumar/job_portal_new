@@ -58,7 +58,7 @@ export const scheduleInterview = async (req, res, next) => {
     }
 
     const eventTitle = `Technical Interview: ${application.applicant.fullname} | ${application.job.title}`;
-    const description = `NexHire Technical Interview for ${application.job.title}.\nRecruiter Notes: ${notes || "None provided."}`;
+    const description = `PathKhojo Technical Interview for ${application.job.title}.\nRecruiter Notes: ${notes || "None provided."}`;
 
     // Create Calendar Event & Meeting Link
     const calendarResult = await createCalendarInterview({

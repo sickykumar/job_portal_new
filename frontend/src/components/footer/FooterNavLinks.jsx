@@ -25,10 +25,10 @@ const FooterNavLinks = ({ onOpenLegal }) => {
           </div>
           <div className="flex flex-col">
             <span className="font-display text-xl font-black tracking-tight text-slate-900 dark:text-white">
-              Nex<span className="text-cyan-500">Hire</span>
+              Path<span className="text-cyan-500">Khojo</span>
             </span>
             <span className="text-[9px] font-extrabold uppercase tracking-widest text-indigo-500 dark:text-cyan-400">
-              Smart Hiring OS
+              Career Navigator
             </span>
           </div>
         </Link>

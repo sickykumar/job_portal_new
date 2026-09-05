@@ -36,7 +36,7 @@ export const subscribeNewsletter = async (req, res, next) => {
         // Send re-activation welcome email (non-blocking)
         sendEmail({
           to: cleanEmail,
-          subject: "Welcome Back to NexHire Tech Alerts! 🚀",
+          subject: "Welcome Back to PathKhojo Tech Alerts! 🚀",
           html: newsletterWelcomeHTML(cleanEmail),
         }).catch((err) =>
           console.error("[Newsletter] Reactivation email failed:", err.message)
@@ -49,7 +49,7 @@ export const subscribeNewsletter = async (req, res, next) => {
       }
 
       return res.status(200).json({
-        message: "You are already subscribed to NexHire job alerts!",
+        message: "You are already subscribed to PathKhojo job alerts!",
         success: true,
       });
     }
@@ -65,7 +65,7 @@ export const subscribeNewsletter = async (req, res, next) => {
     // Send welcome email (non-blocking — don't fail the API response)
     sendEmail({
       to: cleanEmail,
-      subject: "🎉 Welcome to NexHire Tech Career Alerts!",
+      subject: "🎉 Welcome to PathKhojo Tech Career Alerts!",
       html: newsletterWelcomeHTML(cleanEmail),
     }).catch((err) =>
       console.error("[Newsletter] Welcome email failed:", err.message)
@@ -101,7 +101,7 @@ export const unsubscribeNewsletter = async (req, res, next) => {
     }
 
     return res.status(200).json({
-      message: "You have been unsubscribed from NexHire job alerts.",
+      message: "You have been unsubscribed from PathKhojo job alerts.",
       success: true,
     });
   } catch (error) {

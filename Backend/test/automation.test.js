@@ -50,7 +50,7 @@ describe("Automation System Suite", () => {
   describe("Google Calendar & iCalendar (.ics) Generation", () => {
     it("should generate valid RFC 5545 iCalendar content with meeting link and alarms", () => {
       const ics = generateIcsContent({
-        uid: "test-uid-12345@nexhire.com",
+        uid: "test-uid-12345@sickykumar.in",
         summary: "Technical Discussion: John Doe | Software Engineer",
         description: "Round 1 Technical Architecture Interview",
         location: "https://meet.google.com/abc-defg-hij",

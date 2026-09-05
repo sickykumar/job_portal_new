@@ -35,7 +35,7 @@ export const contactConfirmationHTML = ({ name, email, subject, category, ticket
         <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="background-color:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
           <tr>
             <td style="background:linear-gradient(135deg,#4f46e5,#7c3aed,#06b6d4); padding:28px 32px; text-align:center;">
-              <h1 style="margin:0; color:#ffffff; font-size:24px; font-weight:800;">Nex<span style="color:#22d3ee;">Hire</span></h1>
+              <h1 style="margin:0; color:#ffffff; font-size:24px; font-weight:800;">Path<span style="color:#22d3ee;">Khojo</span></h1>
               <p style="margin:4px 0 0; color:rgba(255,255,255,0.8); font-size:11px; text-transform:uppercase; letter-spacing:2px; font-weight:600;">Support & Contact</p>
             </td>
           </tr>
