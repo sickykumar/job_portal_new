@@ -144,12 +144,6 @@ export const PathKhojoLogo = ({
               Khojo
             </span>
           </span>
-          {showSubtitle && (
-            <span className={`font-extrabold tracking-widest text-slate-400 dark:text-slate-400 uppercase mt-0.5 ${currentSize.sub} flex items-center gap-1`}>
-              <span className="w-1 h-1 rounded-full bg-emerald-400 inline-block animate-pulse" />
-              Career Navigator OS
-            </span>
-          )}
         </div>
       )}
     </div>
