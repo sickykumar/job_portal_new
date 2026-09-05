@@ -69,7 +69,7 @@ export const jobAlertEmailTemplate = ({
             <td style="padding:28px; color:#e2e8f0;">
               <p style="margin:0 0 16px; font-size:14px; color:#94a3b8;">Hello <strong style="color:#ffffff;">${candidateName}</strong>,</p>
               <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#94a3b8;">
-                A new open position matching your career preferences has just been posted on <strong>NexHire</strong>:
+                A new open position matching your career preferences has just been posted on <strong>PathKhojo</strong>:
               </p>
 
               <!-- Job Card -->
@@ -112,7 +112,7 @@ export const jobAlertEmailTemplate = ({
               </div>
 
               <p style="margin:0; font-size:12px; color:#64748b; text-align:center;">
-                You received this alert because you subscribed to custom job notifications on NexHire.
+                You received this alert because you subscribed to custom job notifications on PathKhojo.
               </p>
             </td>
           </tr>
@@ -120,7 +120,7 @@ export const jobAlertEmailTemplate = ({
           <!-- Footer -->
           <tr>
             <td style="background-color:#0b101d; padding:16px 28px; text-align:center; border-top:1px solid #1e293b;">
-              <p style="margin:0; color:#64748b; font-size:11px;">NexHire Career Intelligence Platform • <a href="${clientUrl}/jobs" style="color:#38bdf8; text-decoration:none;">Browse All Positions</a></p>
+              <p style="margin:0; color:#64748b; font-size:11px;">PathKhojo Career Intelligence Platform • <a href="${clientUrl}/jobs" style="color:#38bdf8; text-decoration:none;">Browse All Positions</a></p>
             </td>
           </tr>
         </table>

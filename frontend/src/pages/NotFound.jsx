@@ -61,7 +61,7 @@ const NotFound = () => {
           Destination Lost in the Career Void
         </h1>
         <p className="mt-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-          The coordinate or page you are looking for has been relocated, archived, or does not exist in the NexHire cluster.
+          The coordinate or page you are looking for has been relocated, archived, or does not exist in the PathKhojo cluster.
         </p>
 
         {/* Navigation Action Buttons */}

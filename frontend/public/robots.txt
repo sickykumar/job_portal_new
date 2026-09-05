@@ -12,4 +12,4 @@ Disallow: /admin-dashboard
 Disallow: /account-settings
 Disallow: /api/
 
-Sitemap: https://sickykumar.in/sitemap.xml
+Sitemap: https://pathkhojo.sickykumar.in/sitemap.xml

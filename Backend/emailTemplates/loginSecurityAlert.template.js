@@ -48,7 +48,7 @@ export const loginSecurityAlertHTML = ({
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Security Alert — NexHire Account Login</title>
+  <title>Security Alert — PathKhojo Account Login</title>
 </head>
 <body style="margin:0; padding:0; background-color:#0b0f19; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#f8fafc;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#0b0f19; padding:40px 0;">
@@ -80,7 +80,7 @@ export const loginSecurityAlertHTML = ({
                 Hello ${fullname},
               </h2>
               <p style="margin:0 0 24px; color:#94a3b8; font-size:14px; line-height:1.6;">
-                We detected a recent successful sign-in to your <strong>NexHire (${isRecruiter ? "Recruiter" : "Candidate"})</strong> account. Here are the session details:
+                We detected a recent successful sign-in to your <strong>PathKhojo (${isRecruiter ? "Recruiter" : "Candidate"})</strong> account. Here are the session details:
               </p>
 
               <!-- Session Details Card -->
@@ -145,10 +145,10 @@ export const loginSecurityAlertHTML = ({
           <tr>
             <td style="padding:20px 32px; background-color:#090d16; border-top:1px solid #1e293b; text-align:center;">
               <p style="margin:0 0 4px; color:#64748b; font-size:11px;">
-                Automated security alert sent to <strong>${email}</strong> &bull; NexHire Security Center
+                Automated security alert sent to <strong>${email}</strong> &bull; PathKhojo Security Center
               </p>
               <p style="margin:0; color:#475569; font-size:10px;">
-                © ${now.getFullYear()} NexHire Platforms Technologies Pvt. Ltd. &bull; All rights reserved.
+                © ${now.getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd. &bull; All rights reserved.
               </p>
             </td>
           </tr>

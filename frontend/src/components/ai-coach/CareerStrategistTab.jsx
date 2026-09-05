@@ -21,7 +21,7 @@ const CareerStrategistTab = ({ user, onRequireLogin }) => {
       role: "ai",
       text: user
         ? `Hi ${user?.fullname?.split(" ")[0]}! 👋\n\nI am your AI Career Intelligence Coach. Ask me anything about high-growth tech domains, resume optimization, interview strategies, or how to position your skills for top compensation.`
-        : `Welcome to NexHire AI Career Coach! 👋\n\nI can provide strategic advice on tech roadmaps, skill positioning, and high-impact salary negotiation. Ask any question below to test drive the AI intelligence!`,
+        : `Welcome to PathKhojo AI Career Coach! 👋\n\nI can provide strategic advice on tech roadmaps, skill positioning, and high-impact salary negotiation. Ask any question below to test drive the AI intelligence!`,
     },
   ]);
 

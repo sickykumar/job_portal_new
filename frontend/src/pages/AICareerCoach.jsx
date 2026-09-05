@@ -18,7 +18,7 @@ import {
   InterviewLabTab,
   SalaryIntelligenceTab,
 } from "../components/ai-coach";
-import NexHireLogo from "../components/common/NexHireLogo";
+import PathKhojoLogo from "../components/common/PathKhojoLogo";
 
 const AICareerCoach = () => {
   const { user } = useAuth();
@@ -110,7 +110,7 @@ const AICareerCoach = () => {
 
               {/* Brand Logo & Icon */}
               <div className="mx-auto mb-3 flex flex-col items-center">
-                <NexHireLogo size="sm" showText={true} />
+                <PathKhojoLogo size="sm" showText={true} />
               </div>
 
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-500 to-cyan-400 text-white shadow-lg shadow-indigo-500/25">

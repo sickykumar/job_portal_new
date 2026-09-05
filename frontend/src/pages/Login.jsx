@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import GoogleAuthButton from "../components/GoogleAuthButton";
 import ForgotPasswordModal from "../components/ForgotPasswordModal";
-import NexHireLogo from "../components/common/NexHireLogo";
+import PathKhojoLogo from "../components/common/PathKhojoLogo";
 
 const Login = ({ onSuccess }) => {
   // Step 1: Credentials | Step 2: OTP Verification
@@ -196,7 +196,7 @@ const Login = ({ onSuccess }) => {
             
             {/* Brand Header */}
             <div className="mb-6 text-center flex flex-col items-center">
-              <NexHireLogo size="lg" showText={true} showSubtitle={true} asLink to="/" className="mb-4" />
+              <PathKhojoLogo size="lg" showText={true} showSubtitle={true} asLink to="/" className="mb-4" />
 
               <div className="mb-1 flex items-center justify-center gap-2">
                 <h2 className="text-xl font-black tracking-tight text-slate-950 sm:text-2xl dark:text-white">

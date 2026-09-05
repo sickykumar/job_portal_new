@@ -10,7 +10,7 @@ export const LEGAL_DOCS = {
       {
         heading: "1. Compliance with Digital Personal Data Protection Act 2023",
         content:
-          "NexHire strictly complies with India's Digital Personal Data Protection (DPDP) Act, 2023 and global GDPR standards. Candidate contact information, resumes, and project portfolios are processed solely for facilitating verified recruitment opportunities with genuine hiring teams.",
+          "PathKhojo strictly complies with India's Digital Personal Data Protection (DPDP) Act, 2023 and global GDPR standards. Candidate contact information, resumes, and project portfolios are processed solely for facilitating verified recruitment opportunities with genuine hiring teams.",
       },
       {
         heading: "2. Masked Government Credentials & Encryption",
@@ -20,7 +20,7 @@ export const LEGAL_DOCS = {
       {
         heading: "3. Transparent Data Access",
         content:
-          "Your uploaded resume PDF and candidate profile are visible only to verified recruiters whose job postings you actively submit an application to, or whom you permit through privacy controls. NexHire never sells, rents, or monetizes personal data to third-party advertisers.",
+          "Your uploaded resume PDF and candidate profile are visible only to verified recruiters whose job postings you actively submit an application to, or whom you permit through privacy controls. PathKhojo never sells, rents, or monetizes personal data to third-party advertisers.",
       },
     ],
   },
@@ -31,12 +31,12 @@ export const LEGAL_DOCS = {
       {
         heading: "1. Verified Job Postings & Fair Representation",
         content:
-          "Recruiters warrant that every position published on NexHire represents an active, legitimate hiring requirement with authentic salary ranges and accurate role expectations. Deceptive, discriminatory, or commission-only MLM postings result in immediate account termination.",
+          "Recruiters warrant that every position published on PathKhojo represents an active, legitimate hiring requirement with authentic salary ranges and accurate role expectations. Deceptive, discriminatory, or commission-only MLM postings result in immediate account termination.",
       },
       {
         heading: "2. Merit-Based & Equal Opportunity Hiring",
         content:
-          "NexHire mandates non-discriminatory hiring practices across gender, religion, caste, age, sexual orientation, or physical disability. All candidate decisions must be grounded strictly in technical competency and job qualifications.",
+          "PathKhojo mandates non-discriminatory hiring practices across gender, religion, caste, age, sexual orientation, or physical disability. All candidate decisions must be grounded strictly in technical competency and job qualifications.",
       },
       {
         heading: "3. Candidate Integrity & Portfolio Authenticity",
@@ -57,7 +57,7 @@ export const LEGAL_DOCS = {
       {
         heading: "2. Zero Biometric or Raw Credential Storage",
         content:
-          "NexHire does not capture, process, or store biometric records. We only maintain cryptographic hashes and masked representations suitable for authorized HR background check audits.",
+          "PathKhojo does not capture, process, or store biometric records. We only maintain cryptographic hashes and masked representations suitable for authorized HR background check audits.",
       },
     ],
   },
@@ -73,7 +73,7 @@ export const LEGAL_DOCS = {
       {
         heading: "2. Vulnerability Disclosure SLA",
         content:
-          "Security researchers can report findings responsibly to security@nexhire.com. We acknowledge verified reports within 24 hours and commit to a 48-hour resolution SLA.",
+          "Security researchers can report findings responsibly to connect@sickykumar.in. We acknowledge verified reports within 24 hours and commit to a 48-hour resolution SLA.",
       },
     ],
   },

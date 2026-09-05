@@ -75,7 +75,7 @@ const AuthModal = ({ onSuccess }) => {
       {/* Title */}
       <div style={{ textAlign: "center", marginBottom: 28 }}>
         <h2 style={{ fontSize: 28, fontWeight: 700, color: "#fff", marginBottom: 8 }}>
-          {isLogin ? "Welcome Back" : "Join NexHire"}
+          {isLogin ? "Welcome Back" : "Join PathKhojo"}
         </h2>
         <p style={{ color: "var(--text-secondary)", fontSize: 14 }}>
           {isLogin 

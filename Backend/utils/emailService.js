@@ -26,7 +26,7 @@ export const sendEmail = async ({ to, subject, html, text }) => {
   }
 
   const mailOptions = {
-    from: process.env.SMTP_FROM || `"NexHire Careers" <${process.env.SMTP_USER}>`,
+    from: process.env.SMTP_FROM || `"PathKhojo Careers" <${process.env.SMTP_USER}>`,
     to,
     subject,
     html,

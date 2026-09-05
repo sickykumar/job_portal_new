@@ -21,7 +21,7 @@ export const newsletterWelcomeHTML = (email) => {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to NexHire Tech Alerts</title>
+  <title>Welcome to PathKhojo Tech Alerts</title>
 </head>
 <body style="margin:0; padding:0; background-color:#f1f5f9; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#f1f5f9; padding:40px 0;">
@@ -45,10 +45,10 @@ export const newsletterWelcomeHTML = (email) => {
           <tr>
             <td style="padding:36px 32px;">
               <h2 style="margin:0 0 12px; color:#0f172a; font-size:22px; font-weight:700;">
-                🎉 You're In! Welcome to NexHire Tech Alerts
+                🎉 You're In! Welcome to PathKhojo Tech Alerts
               </h2>
               <p style="margin:0 0 20px; color:#475569; font-size:15px; line-height:1.7;">
-                Hi there! You've successfully subscribed to <strong>NexHire's weekly curated tech career alerts</strong>. 
+                Hi there! You've successfully subscribed to <strong>PathKhojo's weekly curated tech career alerts</strong>. 
                 Here's what you'll receive straight in your inbox:
               </p>
 
@@ -93,10 +93,10 @@ export const newsletterWelcomeHTML = (email) => {
           <tr>
             <td style="padding:24px 32px; background:#f8fafc; border-top:1px solid #e2e8f0; text-align:center;">
               <p style="margin:0 0 6px; color:#94a3b8; font-size:12px;">
-                This email was sent to <strong>${email}</strong> because you subscribed to NexHire Tech Career Alerts.
+                This email was sent to <strong>${email}</strong> because you subscribed to PathKhojo Tech Career Alerts.
               </p>
               <p style="margin:0; color:#cbd5e1; font-size:11px;">
-                © ${new Date().getFullYear()} NexHire Platforms Technologies Pvt. Ltd. • All rights reserved.
+                © ${new Date().getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd. • All rights reserved.
               </p>
             </td>
           </tr>

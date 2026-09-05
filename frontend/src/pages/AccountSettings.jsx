@@ -858,7 +858,7 @@ const AccountSettings = () => {
                   </div>
                   <button
                     type="button"
-                    onClick={() => toast.info("To permanently delete your account and compliance records, please submit an official request to compliance@nexhire.com.")}
+                    onClick={() => toast.info("To permanently delete your account and compliance records, please submit an official request to connect@sickykumar.in.")}
                     className="self-start sm:self-auto rounded-xl bg-rose-600 px-3.5 py-2 text-xs font-bold text-white shadow-sm hover:bg-rose-700"
                   >
                     Deactivate

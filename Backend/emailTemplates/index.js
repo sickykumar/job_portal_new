@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * NEXHIRE EMAIL TEMPLATES MASTER DIRECTORY & INDEX
+ * PATHKHOJO EMAIL TEMPLATES MASTER DIRECTORY & INDEX
  * ============================================================================
  * 
  * This directory breaks down all system email templates into dedicated, modular,

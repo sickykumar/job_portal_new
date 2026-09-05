@@ -55,7 +55,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is my Aadhaar and PAN data safe?",
-    a: "Yes. NexHire never stores raw identity numbers. We only maintain masked representations (e.g. XXXX XXXX 1234) and cryptographic hashes. All data is encrypted with AES-256 at rest and TLS 1.3 in transit.",
+    a: "Yes. PathKhojo never stores raw identity numbers. We only maintain masked representations (e.g. XXXX XXXX 1234) and cryptographic hashes. All data is encrypted with AES-256 at rest and TLS 1.3 in transit.",
   },
 ];
 
@@ -317,7 +317,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Email Support</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">support@nexhire.com</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">connect@sickykumar.in</p>
                   <p className="text-[10px] text-slate-400">Response within 24-48 hours</p>
                 </div>
               </div>
@@ -338,7 +338,7 @@ const ContactUs = () => {
                 <div>
                   <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Registered Office</p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    NexHire Platforms Technologies Pvt. Ltd.
+                    PathKhojo Platforms Technologies Pvt. Ltd.
                   </p>
                   <p className="text-[10px] text-slate-400">Bengaluru, Karnataka — 560001, India</p>
                 </div>

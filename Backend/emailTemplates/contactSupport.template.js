@@ -73,8 +73,8 @@ export const contactConfirmationHTML = ({ name, email, subject, category, ticket
           </tr>
           <tr>
             <td style="padding:20px 32px; background:#f8fafc; border-top:1px solid #e2e8f0; text-align:center;">
-              <p style="margin:0; color:#94a3b8; font-size:11px;">This is an automated confirmation from NexHire Support.</p>
-              <p style="margin:4px 0 0; color:#cbd5e1; font-size:10px;">© ${new Date().getFullYear()} NexHire Platforms Technologies Pvt. Ltd.</p>
+              <p style="margin:0; color:#94a3b8; font-size:11px;">This is an automated confirmation from PathKhojo Support.</p>
+              <p style="margin:4px 0 0; color:#cbd5e1; font-size:10px;">© ${new Date().getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd.</p>
             </td>
           </tr>
         </table>
@@ -102,7 +102,7 @@ export const contactAdminNotifyHTML = ({ name, email, subject, category, ticketI
           <tr>
             <td style="background:#0f172a; padding:20px 28px; text-align:center;">
               <h1 style="margin:0; color:#ffffff; font-size:20px; font-weight:700;">📩 New Contact Submission</h1>
-              <p style="margin:4px 0 0; color:#94a3b8; font-size:11px;">NexHire Admin Panel Notification</p>
+              <p style="margin:4px 0 0; color:#94a3b8; font-size:11px;">PathKhojo Admin Panel Notification</p>
             </td>
           </tr>
           <tr>
@@ -164,7 +164,7 @@ export const contactResolutionHTML = ({ name, email, subject, ticketId, message,
           <tr>
             <td style="background:linear-gradient(135deg, #059669 0%, #10b981 50%, #06b6d4 100%); padding:32px 30px; text-align:center;">
               <h1 style="margin:0; color:#ffffff; font-size:24px; font-weight:800; letter-spacing:-0.5px;">Ticket Resolution Update</h1>
-              <p style="margin:6px 0 0; color:rgba(255,255,255,0.9); font-size:13px;">NexHire Global Support & Compliance Desk</p>
+              <p style="margin:6px 0 0; color:rgba(255,255,255,0.9); font-size:13px;">PathKhojo Global Support & Compliance Desk</p>
             </td>
           </tr>
           <!-- Body -->
@@ -219,7 +219,7 @@ export const contactResolutionHTML = ({ name, email, subject, ticketId, message,
           <!-- Footer -->
           <tr>
             <td style="background-color:#0f172a; padding:20px 28px; text-align:center; border-top:1px solid #334155;">
-              <p style="margin:0 0 4px; color:#64748b; font-size:12px;">NexHire Cloud Platform & Support Operations</p>
+              <p style="margin:0 0 4px; color:#64748b; font-size:12px;">PathKhojo Cloud Platform & Support Operations</p>
               <p style="margin:0; color:#475569; font-size:11px;">Protected by 256-bit encryption. Do not share confidential credentials over email.</p>
             </td>
           </tr>

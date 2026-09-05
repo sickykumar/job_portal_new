@@ -229,7 +229,7 @@ describe("Validation Schemas", () => {
       email: "rahul@example.com",
       role: "student",
     });
-    expect(candidateHtml).toContain("Welcome to NexHire, Rahul Verma!");
+    expect(candidateHtml).toContain("Welcome to PathKhojo, Rahul Verma!");
     expect(candidateHtml).toContain("Upload & Benchmark Your Resume with AI");
     expect(candidateHtml).toContain("Discover High-Growth Tech Jobs");
     expect(candidateHtml).toContain("Compete in Hackathons & Quizzes");
@@ -240,7 +240,7 @@ describe("Validation Schemas", () => {
       email: "ananya@techcorp.com",
       role: "recruiter",
     });
-    expect(recruiterHtml).toContain("Welcome to NexHire, Ananya Sharma!");
+    expect(recruiterHtml).toContain("Welcome to PathKhojo, Ananya Sharma!");
     expect(recruiterHtml).toContain("Set Up Your Verified Company Profile");
     expect(recruiterHtml).toContain("Post Your First Job Opening with AI");
     expect(recruiterHtml).toContain("Manage Talent via 5-Stage Kanban");

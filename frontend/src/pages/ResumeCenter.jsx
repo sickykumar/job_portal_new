@@ -26,7 +26,7 @@ const ResumeCenter = () => {
           <div>
             <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-bold text-indigo-600 dark:text-cyan-400">
               <FileCheck2 className="h-4 w-4" />
-              <span>NexHire Resume Document Hub</span>
+              <span>PathKhojo Resume Document Hub</span>
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
             </div>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">

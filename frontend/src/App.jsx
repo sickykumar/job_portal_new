@@ -64,7 +64,7 @@ function MainContent() {
 
   // Initial Auth Check: Display Universal Cyber Loader
   if (loading) {
-    return <UniversalLoader fullScreen={true} message="Initializing NexHire Career Portal..." />;
+    return <UniversalLoader fullScreen={true} message="Initializing PathKhojo Career Portal..." />;
   }
 
   // Hide massive marketing footer on all operating dashboards and admin consoles

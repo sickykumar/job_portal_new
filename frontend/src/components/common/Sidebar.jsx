@@ -30,7 +30,7 @@ import {
   LifeBuoy,
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
-import NexHireLogo from "./NexHireLogo";
+import PathKhojoLogo from "./PathKhojoLogo";
 
 /**
  * Sidebar Component (Unstop-Inspired Left Navigation Bar)
@@ -107,13 +107,15 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, mobileOpen, setMobileOpen }) => 
       >
         {/* Top Header: Logo + Collapse Toggle */}
         <div className="h-16 flex items-center justify-between px-3 border-b border-slate-100 dark:border-slate-800/60 flex-shrink-0">
-          <NexHireLogo
-            size={isCollapsed ? "sm" : "sm"}
-            showText={!isCollapsed}
-            showSubtitle={!isCollapsed}
-            asLink={true}
-            to="/"
-          />
+          <div className="flex items-center gap-2 overflow-hidden">
+            <PathKhojoLogo
+              size="sm"
+              showText={!isCollapsed}
+              showSubtitle={!isCollapsed}
+              asLink={true}
+              to="/"
+            />
+          </div>
 
           {/* Desktop Collapse/Expand Toggle Button (« / ») */}
           <button

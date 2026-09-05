@@ -20,7 +20,7 @@ import {
 import GoogleAuthButton from "../components/GoogleAuthButton";
 import CaptchaWidget from "../components/CaptchaWidget";
 import TermsModal from "../components/TermsModal";
-import NexHireLogo from "../components/common/NexHireLogo";
+import PathKhojoLogo from "../components/common/PathKhojoLogo";
 
 const Register = () => {
   const [fullname, setFullname] = useState("");
@@ -138,7 +138,7 @@ const Register = () => {
             
             {/* Brand Header */}
             <div className="mb-4 text-center flex flex-col items-center">
-              <NexHireLogo size="md" showText={true} showSubtitle={true} asLink to="/" className="mb-2" />
+              <PathKhojoLogo size="md" showText={true} showSubtitle={true} asLink to="/" className="mb-2" />
               <h2 className="text-lg font-black tracking-tight text-slate-950 sm:text-xl dark:text-white">
                 Create Account
               </h2>

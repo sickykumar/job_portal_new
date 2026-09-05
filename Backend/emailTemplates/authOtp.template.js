@@ -30,7 +30,7 @@ export const loginOtpTemplate = ({ name = "User", otp }) => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your NexHire Login Code</title>
+  <title>Your PathKhojo Login Code</title>
 </head>
 <body style="margin:0; padding:0; background-color:#090d16; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#090d16; padding:30px 10px;">
@@ -39,7 +39,7 @@ export const loginOtpTemplate = ({ name = "User", otp }) => {
         <table role="presentation" width="100%" style="max-width:540px; background-color:#111827; border-radius:18px; overflow:hidden; border:1px solid #1e293b; box-shadow:0 20px 40px rgba(0,0,0,0.6);">
           <tr>
             <td style="background:linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%); padding:32px 30px; text-align:center;">
-              <h1 style="margin:0; color:#ffffff; font-size:24px; font-weight:800;">NexHire Security Verification</h1>
+              <h1 style="margin:0; color:#ffffff; font-size:24px; font-weight:800;">PathKhojo Security Verification</h1>
               <p style="margin:6px 0 0; color:rgba(255,255,255,0.9); font-size:13px;">Two-Factor Authentication Passcode</p>
             </td>
           </tr>
@@ -47,7 +47,7 @@ export const loginOtpTemplate = ({ name = "User", otp }) => {
             <td style="padding:32px 28px; color:#e2e8f0; text-align:center;">
               <p style="margin:0 0 16px; font-size:15px; text-align:left;">Hello <strong style="color:#ffffff;">${name}</strong>,</p>
               <p style="margin:0 0 24px; font-size:14px; line-height:1.6; color:#94a3b8; text-align:left;">
-                We received a sign-in request for your NexHire account. Please use the following 6-digit one-time passcode (OTP) to complete your login:
+                We received a sign-in request for your PathKhojo account. Please use the following 6-digit one-time passcode (OTP) to complete your login:
               </p>
 
               <!-- OTP Code Display Card -->
@@ -59,13 +59,13 @@ export const loginOtpTemplate = ({ name = "User", otp }) => {
                 ⚠️ This passcode is valid for 5 minutes only. Do not share this code with anyone.
               </p>
               <p style="margin:0; font-size:12px; line-height:1.6; color:#64748b; text-align:left;">
-                If you did not attempt to sign in to your NexHire account, please change your account password immediately to protect your credentials.
+                If you did not attempt to sign in to your PathKhojo account, please change your account password immediately to protect your credentials.
               </p>
             </td>
           </tr>
           <tr>
             <td style="background-color:#0f172a; padding:16px 28px; text-align:center; border-top:1px solid #1e293b;">
-              <p style="margin:0; color:#64748b; font-size:11px;">NexHire Identity & Security Shield • Automated Message</p>
+              <p style="margin:0; color:#64748b; font-size:11px;">PathKhojo Identity & Security Shield • Automated Message</p>
             </td>
           </tr>
         </table>
@@ -97,14 +97,14 @@ export const forgotPasswordOtpTemplate = ({ name = "User", otp }) => {
           <tr>
             <td style="background:linear-gradient(135deg, #e11d48 0%, #f43f5e 50%, #fb7185 100%); padding:32px 30px; text-align:center;">
               <h1 style="margin:0; color:#ffffff; font-size:24px; font-weight:800;">Password Reset Request</h1>
-              <p style="margin:6px 0 0; color:rgba(255,255,255,0.9); font-size:13px;">NexHire Account Recovery</p>
+              <p style="margin:6px 0 0; color:rgba(255,255,255,0.9); font-size:13px;">PathKhojo Account Recovery</p>
             </td>
           </tr>
           <tr>
             <td style="padding:32px 28px; color:#e2e8f0; text-align:center;">
               <p style="margin:0 0 16px; font-size:15px; text-align:left;">Hello <strong style="color:#ffffff;">${name}</strong>,</p>
               <p style="margin:0 0 24px; font-size:14px; line-height:1.6; color:#94a3b8; text-align:left;">
-                We received a request to reset the password for your NexHire account. Enter the 6-digit recovery code below to proceed:
+                We received a request to reset the password for your PathKhojo account. Enter the 6-digit recovery code below to proceed:
               </p>
 
               <!-- OTP Code Display Card -->
@@ -122,7 +122,7 @@ export const forgotPasswordOtpTemplate = ({ name = "User", otp }) => {
           </tr>
           <tr>
             <td style="background-color:#0f172a; padding:16px 28px; text-align:center; border-top:1px solid #1e293b;">
-              <p style="margin:0; color:#64748b; font-size:11px;">NexHire Identity & Security Shield • Automated Message</p>
+              <p style="margin:0; color:#64748b; font-size:11px;">PathKhojo Identity & Security Shield • Automated Message</p>
             </td>
           </tr>
         </table>
@@ -161,7 +161,7 @@ export const passwordChangedTemplate = ({ name = "User", changedAt = new Date().
             <td style="padding:32px 28px; color:#e2e8f0;">
               <p style="margin:0 0 16px; font-size:15px;">Hello <strong style="color:#ffffff;">${name}</strong>,</p>
               <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#94a3b8;">
-                This email confirms that the password for your NexHire account was successfully changed on <strong>${changedAt}</strong>.
+                This email confirms that the password for your PathKhojo account was successfully changed on <strong>${changedAt}</strong>.
               </p>
 
               <div style="background:#0f172a; border-left:4px solid #10b981; border-radius:8px; padding:16px; margin-bottom:24px;">
@@ -179,7 +179,7 @@ export const passwordChangedTemplate = ({ name = "User", changedAt = new Date().
           </tr>
           <tr>
             <td style="background-color:#0f172a; padding:16px 28px; text-align:center; border-top:1px solid #1e293b;">
-              <p style="margin:0; color:#64748b; font-size:11px;">NexHire Platform Security Team</p>
+              <p style="margin:0; color:#64748b; font-size:11px;">PathKhojo Platform Security Team</p>
             </td>
           </tr>
         </table>

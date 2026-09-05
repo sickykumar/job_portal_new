@@ -28,7 +28,7 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
                   Platform Terms & Privacy Policy
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  NexHire Global Employment Agreement
+                  PathKhojo Global Employment Agreement
                 </p>
               </div>
             </div>
@@ -88,7 +88,7 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
                   1. Acceptance of Platform Terms
                 </h4>
                 <p>
-                  By creating an account or accessing the NexHire platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, you may not access or use our recruitment services.
+                  By creating an account or accessing the PathKhojo platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, you may not access or use our recruitment services.
                 </p>
 
                 <h4 className="font-bold text-slate-900 dark:text-white text-sm">
@@ -127,7 +127,7 @@ const TermsModal = ({ isOpen, onClose, onAccept }) => {
                   3. Cookies & Session Security
                 </h4>
                 <p>
-                  NexHire uses encrypted HTTP-only cookies and JSON Web Tokens for session verification, keeping your account safe from cross-site scripting (XSS) attacks.
+                  PathKhojo uses encrypted HTTP-only cookies and JSON Web Tokens for session verification, keeping your account safe from cross-site scripting (XSS) attacks.
                 </p>
               </>
             )}

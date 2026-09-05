@@ -124,7 +124,7 @@ export const recruiterBroadcastEmailTemplate = ({
               </div>
 
               <p style="margin:0; font-size:12px; color:#64748b; text-align:center; line-height:1.5;">
-                You received this alert because your verified profile skills align with this open role on NexHire.
+                You received this alert because your verified profile skills align with this open role on PathKhojo.
               </p>
             </td>
           </tr>
@@ -133,7 +133,7 @@ export const recruiterBroadcastEmailTemplate = ({
           <tr>
             <td style="background-color:#090d16; padding:16px 24px; text-align:center; border-top:1px solid #1e293b;">
               <p style="margin:0; color:#64748b; font-size:11px;">
-                NexHire Career Intelligence Platform &bull; <a href="${clientUrl}/profile" style="color:#38bdf8; text-decoration:none;">Update Skills & Profile</a>
+                PathKhojo Career Intelligence Platform &bull; <a href="${clientUrl}/profile" style="color:#38bdf8; text-decoration:none;">Update Skills & Profile</a>
               </p>
             </td>
           </tr>

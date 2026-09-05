@@ -49,7 +49,7 @@ const CaptchaWidget = ({ onVerify, isVerified }) => {
             {isVerified ? "Verification Successful" : "I'm not a robot"}
           </p>
           <p className="text-[10px] text-slate-400">
-            {isVerified ? "Secured by NexHire Shield" : "Click the checkbox to verify"}
+            {isVerified ? "Secured by PathKhojo Shield" : "Click the checkbox to verify"}
           </p>
         </div>
       </div>

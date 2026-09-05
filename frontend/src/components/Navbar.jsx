@@ -33,7 +33,7 @@ import { useTheme } from "../context/ThemeContext";
 import NotificationBell from "./NotificationBell";
 import CareerHistoryDrawer from "./CareerHistoryDrawer";
 import api from "../services/api";
-import NexHireLogo from "./common/NexHireLogo";
+import PathKhojoLogo from "./common/PathKhojoLogo";
 
 /**
  * Navbar Component (Unstop-Inspired Clean Top Navigation Bar)
@@ -316,7 +316,7 @@ const Navbar = ({ isCollapsed, onToggleCollapse, setMobileOpen }) => {
 
             {/* Mobile Logo Icon Badge (Only Glyph Icon on Mobile for Maximum Viewport Space) */}
             <div className="lg:hidden flex items-center shrink-0">
-              <NexHireLogo size="xs" showText={false} asLink={true} to="/" />
+              <PathKhojoLogo size="xs" showText={false} asLink={true} to="/" />
             </div>
           </div>
 

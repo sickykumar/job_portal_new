@@ -13,7 +13,7 @@ const FooterBottomBar = ({ onOpenLegal }) => {
       {/* Corporate Copyright & CIN */}
       <div className="space-y-1 text-center lg:text-left">
         <p className="font-bold text-slate-700 dark:text-slate-200 text-xs">
-          © {new Date().getFullYear()} NexHire Platforms Technologies Pvt. Ltd. All rights reserved.
+          © {new Date().getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd. All rights reserved.
         </p>
         <p className="text-[11px] text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
           Crafted & Engineered with ❤️ by{" "}

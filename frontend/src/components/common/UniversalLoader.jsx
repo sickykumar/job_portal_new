@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Compass } from "lucide-react";
-import NexHireLogo from "./NexHireLogo";
+import PathKhojoLogo from "./PathKhojoLogo";
 
 /**
  * UniversalLoader Component
@@ -13,10 +13,11 @@ import NexHireLogo from "./NexHireLogo";
  * @param {string} size - "sm" | "md" | "lg"
  */
 const UniversalLoader = ({
-  message = "Loading career intelligence...",
-  fullScreen = false,
+  message = "Loading PathKhojo workspace...",
+  fullScreen = true,
   size = "md",
   className = "",
+  subMessage = "Synchronizing decentralized talent nodes & AI models...",
 }) => {
   const sizeMap = {
     sm: { box: "h-10 w-10", ring1: "h-10 w-10", ring2: "h-7 w-7", icon: 14, text: "text-xs" },
@@ -30,8 +31,8 @@ const UniversalLoader = ({
     <div className={`flex flex-col items-center justify-center gap-4 ${className}`}>
       {/* Brand Watermark for Fullscreen Loader */}
       {fullScreen && (
-        <div className="mb-2 flex items-center justify-center">
-          <NexHireLogo size="md" showText={true} showSubtitle={true} />
+        <div className="mb-6 flex flex-col items-center animate-bounce-subtle">
+          <PathKhojoLogo size="md" showText={true} showSubtitle={true} />
         </div>
       )}
 
@@ -71,10 +72,10 @@ const UniversalLoader = ({
           <span>{message}</span>
         </p>
 
-        <span className="mt-1 inline-flex items-center gap-1 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-indigo-600 dark:text-cyan-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-ping" />
-          NexHire Core Engine
-        </span>
+        <div className="flex items-center gap-1.5 text-[10px] font-semibold tracking-wider uppercase text-slate-400 dark:text-slate-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
+          PathKhojo Core Engine
+        </div>
       </div>
     </div>
   );

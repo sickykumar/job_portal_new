@@ -34,7 +34,7 @@ export const registrationWelcomeHTML = ({ fullname, email, role }) => {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to NexHire — Get Started</title>
+  <title>Welcome to PathKhojo — Get Started</title>
 </head>
 <body style="margin:0; padding:0; background-color:#0b0f19; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#f8fafc;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#0b0f19; padding:40px 0;">
@@ -46,10 +46,10 @@ export const registrationWelcomeHTML = ({ fullname, email, role }) => {
           <tr>
             <td style="background:linear-gradient(135deg, #4338ca 0%, #7c3aed 50%, #0891b2 100%); padding:36px 32px; text-align:center;">
               <h1 style="margin:0; color:#ffffff; font-size:28px; font-weight:800; letter-spacing:-0.5px;">
-                Nex<span style="color:#a5f3fc;">Hire</span>
+                Path<span style="color:#a5f3fc;">Khojo</span>
               </h1>
               <p style="margin:8px 0 0; color:rgba(255,255,255,0.9); font-size:12px; text-transform:uppercase; letter-spacing:2px; font-weight:700;">
-                Next-Generation Career Intelligence
+                Career Intelligence & Opportunity Navigator
               </p>
             </td>
           </tr>
@@ -58,7 +58,7 @@ export const registrationWelcomeHTML = ({ fullname, email, role }) => {
           <tr>
             <td style="padding:36px 32px;">
               <h2 style="margin:0 0 10px; color:#ffffff; font-size:22px; font-weight:800;">
-                🎉 Welcome to NexHire, ${fullname}!
+                🎉 Welcome to PathKhojo, ${fullname}!
               </h2>
               <p style="margin:0 0 24px; color:#94a3b8; font-size:14px; line-height:1.6;">
                 Your account is ready as a registered <strong>${roleTitle}</strong>. We're thrilled to partner with you on your career journey.
@@ -152,10 +152,10 @@ export const registrationWelcomeHTML = ({ fullname, email, role }) => {
           <tr>
             <td style="padding:22px 32px; background-color:#090d16; border-top:1px solid #1e293b; text-align:center;">
               <p style="margin:0 0 6px; color:#64748b; font-size:12px;">
-                Welcome email sent to <strong>${email}</strong> &bull; NexHire Career Platform
+                Welcome email sent to <strong>${email}</strong> &bull; PathKhojo Career Platform
               </p>
               <p style="margin:0; color:#475569; font-size:11px;">
-                © ${new Date().getFullYear()} NexHire Platforms Technologies Pvt. Ltd. &bull; All rights reserved.
+                © ${new Date().getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd. &bull; All rights reserved.
               </p>
             </td>
           </tr>

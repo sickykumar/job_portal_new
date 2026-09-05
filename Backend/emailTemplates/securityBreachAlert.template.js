@@ -64,7 +64,7 @@ export const securityBreachAlertHTML = ({
                 Super Admin Breach Attempt Blocked
               </h1>
               <p style="margin:6px 0 0; color:#fecaca; font-size:13px; letter-spacing:0.5px;">
-                NexHire Enterprise Security & Intrusion Prevention Subsystem
+                PathKhojo Enterprise Security & Intrusion Prevention Subsystem
               </p>
             </td>
           </tr>
@@ -125,7 +125,7 @@ export const securityBreachAlertHTML = ({
           <tr>
             <td style="background-color:#07080d; padding:20px 32px; border-top:1px solid #1f2937; text-align:center;">
               <p style="margin:0; color:#6b7280; font-size:11px;">
-                Automated Incident Report &bull; NexHire Platform Security Operations
+                Automated Incident Report &bull; PathKhojo Platform Security Operations
               </p>
             </td>
           </tr>

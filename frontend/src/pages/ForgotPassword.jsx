@@ -196,7 +196,7 @@ const ForgotPassword = () => {
                   ? "Enter your registered email address to receive a secure recovery code."
                   : step === 2
                   ? `Enter the 6-digit recovery code sent to ${email}`
-                  : "Create a strong new password for your NexHire account."}
+                  : "Create a strong new password for your PathKhojo account."}
               </p>
 
               {/* Progress Pill */}
