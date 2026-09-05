@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /jobs
+Allow: /internships
+Allow: /hackathons
+Allow: /quizzes
+Allow: /companies
+Allow: /contact
+
+Disallow: /admin
+Disallow: /admin-dashboard
+Disallow: /account-settings
+Disallow: /api/
+
+Sitemap: https://sickykumar.in/sitemap.xml

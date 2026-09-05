@@ -59,6 +59,36 @@ const jobSchema = new mongoose.Schema(
         ref: "Application",
       },
     ],
+    status: {
+      type: String,
+      enum: ["draft", "published", "paused", "expired", "closed", "archived"],
+      default: "published",
+      index: true,
+    },
+    expiresAt: {
+      type: Date,
+      default: () => new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // Default 30 days
+      index: true,
+    },
+    moderationStatus: {
+      type: String,
+      enum: ["safe", "review_required", "blocked"],
+      default: "safe",
+      index: true,
+    },
+    moderationNotes: {
+      type: String,
+      default: "",
+    },
+    normalizedMetadata: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {},
+    },
+    duplicateHash: {
+      type: String,
+      default: "",
+      index: true,
+    },
   },
   { timestamps: true }
 );

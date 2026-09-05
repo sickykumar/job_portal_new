@@ -16,7 +16,7 @@ const applicationSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["pending", "shortlisted", "interview", "accepted", "hired", "rejected"],
+      enum: ["pending", "under_review", "shortlisted", "interview", "accepted", "offer", "hired", "rejected"],
       default: "pending",
       lowercase: true,
     },
@@ -30,6 +30,22 @@ const applicationSchema = new mongoose.Schema(
       time: { type: String, default: "" },
       meetingLink: { type: String, default: "" },
       notes: { type: String, default: "" },
+    },
+    interviewRef: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Interview",
+      default: null,
+    },
+    aiScreening: {
+      matchScore: { type: Number, default: null },
+      skillMatch: { type: Number, default: null },
+      experienceMatch: { type: Number, default: null },
+      educationMatch: { type: Number, default: null },
+      missingSkills: [{ type: String }],
+      strengths: [{ type: String }],
+      concerns: [{ type: String }],
+      recommendation: { type: String, default: "" },
+      analyzedAt: { type: Date, default: null },
     },
     reviewedAt: {
       type: Date,

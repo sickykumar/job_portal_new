@@ -1,9 +1,0 @@
-{
-  "mode": "interactive",
-  "planning_directory": ".planning",
-  "stack": {
-    "frontend": "React 19, Vite, Tailwind CSS v4, Redux Toolkit, Lucide React, Shadcn/Radix",
-    "backend": "Node.js, Express.js (v5), MongoDB, Mongoose, JWT, Cloudinary, Multer"
-  },
-  "git_tracking": true
-}

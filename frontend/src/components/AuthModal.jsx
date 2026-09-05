@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { Lock, Mail, User, Phone, FileText, CheckCircle, AlertCircle } from "lucide-react";
+import { formatIndianPhone, formatIndianAadhaar, formatIndianPAN } from "../utils/indianFormat";
 
 const AuthModal = ({ onSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -40,8 +41,10 @@ const AuthModal = ({ onSuccess }) => {
         formData.append("email", email);
         formData.append("phoneNumber", phoneNumber);
         formData.append("password", password);
-        formData.append("adharcard", adharcard);
-        formData.append("pancard", pancard);
+        if (role === "recruiter") {
+          formData.append("adharcard", adharcard.replace(/\s+/g, "").trim());
+          formData.append("pancard", pancard.toUpperCase().trim());
+        }
         formData.append("role", role);
         if (file) {
           formData.append("profilePhoto", file);
@@ -181,16 +184,37 @@ const AuthModal = ({ onSuccess }) => {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               <div>
                 <label style={{ display: "block", fontSize: 12, color: "var(--text-secondary)", marginBottom: 6 }}>
-                  Phone Number
+                  Phone Number (India +91)
                 </label>
-                <input
-                  type="tel"
-                  required
-                  className="form-input"
-                  placeholder="+1-555-0100"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                />
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={{
+                    padding: "10px 10px",
+                    backgroundColor: "var(--bg-card-hover)",
+                    border: "1px solid var(--border-subtle)",
+                    borderRight: "none",
+                    borderRadius: "12px 0 0 12px",
+                    fontSize: 11,
+                    fontWeight: 700,
+                    color: "var(--text-primary)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 3
+                  }}>
+                    🇮🇳 +91
+                  </span>
+                  <input
+                    type="tel"
+                    required
+                    className="form-input"
+                    style={{ borderRadius: "0 12px 12px 0" }}
+                    placeholder="98765 43210"
+                    value={phoneNumber.replace(/^\+91\s*/, "")}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/[^0-9\s]/g, "").slice(0, 11);
+                      setPhoneNumber(val ? `+91 ${val.trim()}` : "");
+                    }}
+                  />
+                </div>
               </div>
               <div>
                 <label style={{ display: "block", fontSize: 12, color: "var(--text-secondary)", marginBottom: 6 }}>
@@ -206,34 +230,42 @@ const AuthModal = ({ onSuccess }) => {
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              <div>
-                <label style={{ display: "block", fontSize: 12, color: "var(--text-secondary)", marginBottom: 6 }}>
-                  Aadhaar / Nat. ID
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="form-input"
-                  placeholder="ID Number"
-                  value={adharcard}
-                  onChange={(e) => setAdharcard(e.target.value)}
-                />
+            {role === "recruiter" && (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <div>
+                  <label style={{ display: "block", fontSize: 12, color: "var(--text-secondary)", marginBottom: 6 }}>
+                    Aadhaar Number (12-Digit) *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    maxLength={14}
+                    className="form-input"
+                    placeholder="e.g. 5432 1098 7654"
+                    value={adharcard}
+                    onChange={(e) => {
+                      const digits = e.target.value.replace(/[^0-9]/g, "").slice(0, 12);
+                      const formatted = digits.replace(/(\d{4})(?=\d)/g, "$1 ");
+                      setAdharcard(formatted);
+                    }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: "block", fontSize: 12, color: "var(--text-secondary)", marginBottom: 6 }}>
+                    PAN Card (10-Char) *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    maxLength={10}
+                    className="form-input"
+                    placeholder="e.g. ABCDE1234F"
+                    value={pancard}
+                    onChange={(e) => setPancard(e.target.value.toUpperCase().slice(0, 10))}
+                  />
+                </div>
               </div>
-              <div>
-                <label style={{ display: "block", fontSize: 12, color: "var(--text-secondary)", marginBottom: 6 }}>
-                  PAN / Tax ID
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="form-input"
-                  placeholder="PAN"
-                  value={pancard}
-                  onChange={(e) => setPancard(e.target.value)}
-                />
-              </div>
-            </div>
+            )}
           </>
         )}
 

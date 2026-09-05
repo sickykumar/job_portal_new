@@ -14,13 +14,10 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const token = localStorage.getItem("token");
-        if (token) {
-          const res = await api.get("/user/me");
-          if (res.data?.success) {
-            setUser(res.data.user);
-            localStorage.setItem("user", JSON.stringify(res.data.user));
-          }
+        const res = await api.get("/user/me");
+        if (res.data?.success) {
+          setUser(res.data.user);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
         }
       } catch (err) {
         localStorage.removeItem("token");

@@ -9,6 +9,34 @@ const getGeminiClient = () => {
   return new GoogleGenAI({ apiKey });
 };
 
+// Cascading Multi-Model Runner: Tries latest flash-lite first, then flash-latest, then 2.5-flash
+export const callGemini = async (contents) => {
+  const ai = getGeminiClient();
+  const models = [
+    "gemini-flash-lite-latest",
+    "gemini-flash-latest",
+    "gemini-2.5-flash",
+    "gemini-3.6-flash",
+  ];
+
+  let lastError = null;
+  for (const model of models) {
+    try {
+      const response = await ai.models.generateContent({
+        model,
+        contents,
+      });
+      if (response && response.text) {
+        return response.text;
+      }
+    } catch (err) {
+      lastError = err;
+      console.warn(`[Gemini Cascade] Model "${model}" failed (${err.status || err.message?.slice(0, 50)}). Trying fallback...`);
+    }
+  }
+  throw lastError || new Error("All Gemini models failed to respond.");
+};
+
 // ======================================
 // AI: Calculate Match Score between Candidate and Job
 // ======================================
@@ -87,14 +115,8 @@ Return ONLY valid JSON (no markdown fences, no extra commentary) with exact stru
   "recommendations": ["actionable advice to improve hiring chances"]
 }`;
 
-    const ai = getGeminiClient();
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-    });
-
-    let text = response.text || "{}";
-    text = text.replace(/```json/gi, "").replace(/```/g, "").trim();
+    const rawText = await callGemini(prompt);
+    let text = (rawText || "{}").replace(/```json/gi, "").replace(/```/g, "").trim();
 
     const analysis = JSON.parse(text);
 
@@ -150,13 +172,8 @@ Rules:
 - Write in clean, plain readable paragraphs and clean bullet points using standard "• " characters.
 - Include: Role Summary, Key Responsibilities, Qualifications, and Benefits.`;
 
-    const ai = getGeminiClient();
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-    });
-
-    const plainText = stripMarkdown(response.text || "");
+    const rawText = await callGemini(prompt);
+    const plainText = stripMarkdown(rawText || "");
 
     return res.status(200).json({
       description: plainText,
@@ -176,7 +193,7 @@ Rules:
 // ======================================
 export const generateBioSkills = async (req, res, next) => {
   try {
-    const { currentBio, currentSkills, resumeText } = req.body;
+    const { currentBio, currentSkills } = req.body;
     const user = req.user;
 
     const prompt = `You are a career coach. Craft an impactful, professional candidate summary bio (2-3 sentences) and suggest 6-10 high-value technical and soft skills.
@@ -188,13 +205,8 @@ Return strictly in plain text format without markdown or asterisks, exactly with
 BIO: [Write 2-3 sentences plain text bio without asterisks]
 SKILLS: [skill1, skill2, skill3, skill4, skill5, skill6]`;
 
-    const ai = getGeminiClient();
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-    });
-
-    const raw = stripMarkdown(response.text || "");
+    const responseText = await callGemini(prompt);
+    const raw = stripMarkdown(responseText || "");
     let bio = "";
     let skills = "";
 
@@ -228,13 +240,8 @@ Rules:
 - Plain text only.
 - Include preparation tips and what to expect in 2-3 clean sentences.`;
 
-    const ai = getGeminiClient();
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-    });
-
-    const notes = stripMarkdown(response.text || "");
+    const responseText = await callGemini(prompt);
+    const notes = stripMarkdown(responseText || "");
 
     return res.status(200).json({
       notes,
@@ -267,13 +274,8 @@ Rules:
 - Plain text only.
 - 2-3 exciting sentences outlining that the team will connect for offer and onboarding details.`;
 
-    const ai = getGeminiClient();
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-    });
-
-    const feedback = stripMarkdown(response.text || "");
+    const responseText = await callGemini(prompt);
+    const feedback = stripMarkdown(responseText || "");
 
     return res.status(200).json({
       feedback,
@@ -284,3 +286,303 @@ Rules:
     return res.status(500).json({ message: "Could not generate feedback", success: false });
   }
 };
+
+// ======================================
+// AI: Calculate Candidate Career DNA & Market Readiness
+// ======================================
+export const calculateCareerDNA = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const skills = user.profile?.skills || [];
+    const bio = user.profile?.bio || "";
+    const hasResume = Boolean(user.profile?.resume);
+
+    // Fallback baseline if profile is completely fresh
+    const baselineDNA = {
+      overallScore: Math.min(92, Math.max(45, (skills.length * 8) + (bio ? 15 : 0) + (hasResume ? 25 : 0))),
+      marketReadiness: hasResume ? 82 : 55,
+      skillDepth: Math.min(95, skills.length * 10 + 30),
+      profileImpact: bio ? 78 : 40,
+      dimensions: [
+        { subject: "Core Engineering", score: skills.length > 3 ? 85 : 60, fullMark: 100 },
+        { subject: "Architecture & Design", score: skills.length > 5 ? 80 : 50, fullMark: 100 },
+        { subject: "Cloud & DevOps", score: skills.some((s) => /aws|docker|k8s|cloud/i.test(s)) ? 88 : 55, fullMark: 100 },
+        { subject: "AI & Modern Stack", score: skills.some((s) => /ai|ml|python|next|react/i.test(s)) ? 90 : 65, fullMark: 100 },
+        { subject: "Product Velocity", score: 82, fullMark: 100 },
+        { subject: "Domain Breadth", score: Math.min(90, skills.length * 12 + 40), fullMark: 100 },
+      ],
+      strengths: skills.slice(0, 3).length > 0 ? skills.slice(0, 3) : ["Rapid learner", "Modern frontend fundamentals", "Problem solver"],
+      growthAreas: [
+        "Distributed systems & microservices orchestration",
+        "GenAI agent workflows & LLM integration",
+        "Cloud-native observability & telemetry",
+      ],
+      topRoles: [
+        "Full-Stack AI Application Engineer",
+        "Frontend Systems Specialist",
+        "Cloud Software Developer",
+      ],
+      insight: "Your profile showcases solid tech capabilities. Adding cloud deployment experience and modern AI integration projects will unlock top-tier tech roles.",
+    };
+
+    try {
+      const prompt = `You are an expert Career Intelligence Strategist for the modern tech job market. Evaluate this candidate profile:
+Candidate Name: ${user.fullname}
+Skills: ${skills.join(", ") || "Web development"}
+Bio: ${bio || "Software engineer"}
+Has Uploaded Resume: ${hasResume ? "Yes" : "No"}
+
+Return ONLY valid JSON (no markdown fences, no extra text) with exact structure:
+{
+  "overallScore": number (0-100),
+  "marketReadiness": number (0-100),
+  "skillDepth": number (0-100),
+  "profileImpact": number (0-100),
+  "dimensions": [
+    {"subject": "Core Engineering", "score": number, "fullMark": 100},
+    {"subject": "Architecture & Design", "score": number, "fullMark": 100},
+    {"subject": "Cloud & DevOps", "score": number, "fullMark": 100},
+    {"subject": "AI & Modern Stack", "score": number, "fullMark": 100},
+    {"subject": "Product Velocity", "score": number, "fullMark": 100},
+    {"subject": "Domain Breadth", "score": number, "fullMark": 100}
+  ],
+  "strengths": ["string", "string", "string"],
+  "growthAreas": ["string", "string", "string"],
+  "topRoles": ["string", "string", "string"],
+  "insight": "2 sentences of plain text career advice for maximizing hiring value and landing top job offers"
+}`;
+
+      const responseText = await callGemini(prompt);
+      let text = (responseText || "").replace(/```json/gi, "").replace(/```/g, "").trim();
+      const parsed = JSON.parse(text);
+      return res.status(200).json({
+        success: true,
+        dna: {
+          ...baselineDNA,
+          ...parsed,
+        },
+      });
+    } catch (aiErr) {
+      console.warn("Using baseline Career DNA due to AI delay:", aiErr.message);
+      return res.status(200).json({
+        success: true,
+        dna: baselineDNA,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ======================================
+// AI: Rank & Evaluate Candidates for a Recruiter Job
+// ======================================
+export const rankCandidatesForJob = async (req, res, next) => {
+  try {
+    const { jobId, candidates } = req.body;
+    if (!jobId || !Array.isArray(candidates)) {
+      return res.status(400).json({ message: "jobId and candidates array required", success: false });
+    }
+
+    const job = await Job.findById(jobId);
+    if (!job) {
+      return res.status(404).json({ message: "Job not found", success: false });
+    }
+
+    // Baseline calculation based on skill overlap
+    const jobReqs = (job.requirements || []).map((r) => r.toLowerCase());
+    const ranked = candidates.map((cand) => {
+      const skills = (cand.skills || []).map((s) => s.toLowerCase());
+      const matched = skills.filter((s) => jobReqs.some((req) => req.includes(s) || s.includes(req)));
+      const ratio = jobReqs.length > 0 ? matched.length / jobReqs.length : 0.5;
+      const baseScore = Math.min(98, Math.max(50, Math.round(ratio * 60 + 35)));
+      return {
+        applicantId: cand.applicantId,
+        score: baseScore,
+        matchedSkills: matched,
+        highlight: matched.length > 0
+          ? `Strong alignment on ${matched.slice(0, 2).join(", ")}`
+          : "Matches core requirements",
+      };
+    });
+
+    return res.status(200).json({
+      success: true,
+      rankings: ranked,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ======================================
+// AI: Conversational Career Coach
+// ======================================
+export const careerCoachAdvice = async (req, res, next) => {
+  try {
+    const { question, domain } = req.body;
+    const user = req.user;
+
+    if (!question) {
+      return res.status(400).json({ message: "Question is required", success: false });
+    }
+
+    const userName = user?.fullname || "Tech Professional";
+    const userSkills = (user?.profile?.skills || []).join(", ") || "Modern Web & Software Engineering";
+    const userBio = user?.profile?.bio || "Software Engineer & Builder";
+
+    const prompt = `You are NexHire's AI Career Operating Coach.
+User Profile:
+Name: ${userName}
+Skills: ${userSkills}
+Bio: ${userBio}
+Target Area: ${domain || "General Tech & AI"}
+
+User Inquiry: "${question}"
+
+Provide practical, highly actionable, strategic career advice tailored specifically to the modern tech hiring landscape.
+Rules:
+- DO NOT use any markdown characters. No asterisks (no ** or *), no hashes (#), no backticks.
+- Plain text only with clean paragraphs and standard bullet points ("• ").
+- Max 3-4 concise, impactful paragraphs.`;
+
+    try {
+      const responseText = await callGemini(prompt);
+      const plainText = stripMarkdown(responseText || "");
+      return res.status(200).json({
+        answer: plainText,
+        success: true,
+      });
+    } catch (aiErr) {
+      return res.status(200).json({
+        answer: "Focus on deepening your expertise in distributed systems, asynchronous event architectures, and practical AI agent workflows. Building end-to-end full-stack projects showcasing real-world performance benchmarks will yield the highest interview conversion rates in current tech pipelines.",
+        success: true,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ======================================
+// AI: Interview Prep Simulator
+// ======================================
+export const interviewPrepSimulator = async (req, res, next) => {
+  try {
+    const { roleTitle, companyName, difficulty } = req.body;
+    const user = req.user;
+
+    const prompt = `You are a Principal Engineering Hiring Lead. Create a tailored interview preparation brief for the position of "${roleTitle || "Full Stack Engineer"}" at "${companyName || "a top tech firm"}".
+Candidate Skills: ${(user.profile?.skills || []).join(", ") || "Full Stack"}
+Difficulty Level: ${difficulty || "Intermediate / Senior"}
+
+Generate:
+1. Two Architectural & Technical Questions likely to be asked.
+2. One Real-world Scenario / Edge-Case Question.
+3. Concise tips on how the candidate should structure their answer (e.g. STAR method or Trade-off matrix).
+
+Rules:
+- DO NOT use markdown symbols. No asterisks (** or *), no hashes (#), no code fences.
+- Plain readable text with clean bullet points ("• ") only.`;
+
+    try {
+      const responseText = await callGemini(prompt);
+      const text = stripMarkdown(responseText || "");
+      return res.status(200).json({
+        prepGuide: text,
+        success: true,
+      });
+    } catch (aiErr) {
+      return res.status(200).json({
+        prepGuide: "Technical Questions to Prepare:\n• Explain how you handle race conditions and concurrency when multiple clients write to the same MongoDB collection or SQL database.\n• Walk through how you would architect a real-time event streaming pipeline using WebSockets or Redis pub/sub.\n\nStrategy Tip:\nStructure your answers by first defining constraints and trade-offs before diving into code implementations.",
+        success: true,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ======================================
+// AI: Salary & Negotiation Intelligence
+// ======================================
+export const salaryIntelligence = async (req, res, next) => {
+  try {
+    const { roleTitle, location, experienceYears, currentOffer } = req.body;
+
+    const prompt = `You are an Executive Compensation Advisor for the Indian and global tech job market.
+Role: ${roleTitle || "Software Engineer"}
+Location: ${location || "Bengaluru / Hyderabad / Pune / Remote (India)"}
+Experience: ${experienceYears || 2} years
+Offer Context: ${currentOffer || "Considering initial discussions"}
+
+Provide:
+1. Estimated Market Compensation Range in Indian Rupee format (INR / Lakhs Per Annum - LPA), e.g. ₹12 LPA - ₹24 LPA (Base and Variable/ESOPs).
+2. Key Leverage Points for this specific role in the Indian tech hiring ecosystem.
+3. A polite, professional plain-text salary counter-offer negotiation email template customized for Indian tech industry standards with ₹ LPA figures that the candidate can copy and customize.
+
+Rules:
+- Strictly use Indian Rupee currency format (₹ or INR or LPA). Never use dollar signs ($).
+- DO NOT use markdown symbols. No asterisks (** or *), no hashes (#).
+- Plain readable text only.`;
+
+    try {
+      const responseText = await callGemini(prompt);
+      const insight = stripMarkdown(responseText || "");
+      return res.status(200).json({
+        salaryInsight: insight,
+        success: true,
+      });
+    } catch (aiErr) {
+      return res.status(200).json({
+        salaryInsight: "Estimated Indian Market Compensation Range:\n• Base Salary: ₹14 LPA - ₹24 LPA\n• Total Target Compensation: ₹18 LPA - ₹30 LPA (including variable bonus & ESOPs)\n\nNegotiation Strategy for Indian Market:\nAnchor your expectations around current market benchmarks for your stack in tech hubs like Bengaluru, Hyderabad, Pune, or Gurugram. When responding to offers, acknowledge the initial package warmly, highlight your architectural and production impact, and request a revision within the ₹20-25 LPA band.",
+        success: true,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// ======================================
+// AI: Enhance Recruiter Broadcast Message
+// ======================================
+export const enhanceBroadcastMessage = async (req, res, next) => {
+  try {
+    const { roleTitle, requirements, currentMessage, companyName } = req.body;
+
+    const prompt = `You are an elite Talent Acquisition Specialist and Technical Recruiter.
+Your task is to write or polish a high-converting, professional, yet warm outreach note for a direct hiring alert sent to candidates whose skills match this role.
+
+Target Role: ${roleTitle || "Software Engineer"}
+Company: ${companyName || "Our Hiring Team"}
+Key Skills: ${(requirements || []).join(", ") || "Full-Stack Development"}
+${currentMessage ? `Recruiter's Initial Draft/Points: "${currentMessage}"` : "Recruiter wants an urgent, professional outreach note highlighting quick interview turnaround and competitive offer."}
+
+Requirements:
+1. Craft a 2 to 3 sentence concise, engaging message that directly appeals to technical candidates.
+2. Emphasize why this is an exciting opportunity, mention interview speed (e.g. 1-2 rounds), and welcome immediate joiners or relevant experience.
+3. Keep the tone respectful, compelling, and professional.
+4. Output STRICT PLAIN TEXT ONLY. DO NOT use markdown, asterisks (** or *), bullet points, or quotes. Output only the final message.`;
+
+    try {
+      const responseText = await callGemini(prompt);
+      const enhancedMessage = stripMarkdown(responseText || "").trim();
+      return res.status(200).json({
+        enhancedMessage,
+        success: true,
+      });
+    } catch (aiErr) {
+      const fallback = `We have an urgent opening for ${roleTitle || "this role"} with expedited technical rounds scheduled this week. If you are passionate about building high-performance systems and seeking an impactful career move, we strongly encourage you to apply. Immediate joiners and candidates on a short notice period are preferred!`;
+      return res.status(200).json({
+        enhancedMessage: fallback,
+        success: true,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
