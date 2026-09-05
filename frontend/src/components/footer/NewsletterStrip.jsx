@@ -47,7 +47,7 @@ const NewsletterStrip = () => {
   };
 
   return (
-    <div className="mb-14 rounded-3xl border border-indigo-200/70 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-cyan-500/10 p-6 sm:p-8 dark:border-indigo-500/20">
+    <div className="mb-8 sm:mb-12 rounded-3xl border border-indigo-200/70 bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-cyan-500/10 p-4 sm:p-6 lg:p-8 dark:border-indigo-500/20">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
         <div className="max-w-xl">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-600 dark:text-cyan-400 mb-2">

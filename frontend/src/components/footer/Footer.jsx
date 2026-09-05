@@ -14,8 +14,8 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="w-full border-t border-slate-200/80 bg-slate-50/70 dark:border-white/5 dark:bg-slate-950/80 backdrop-blur-xl mt-20 transition-colors">
-        <div className="w-full px-3 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <footer className="w-full border-t border-slate-200/80 bg-slate-50/70 dark:border-white/5 dark:bg-slate-950/80 backdrop-blur-xl mt-4 sm:mt-10 lg:mt-16 transition-colors">
+        <div className="w-full px-3 sm:px-6 lg:px-8 py-5 sm:py-8 lg:py-12">
           {/* 1. Tech Alert & Newsletter Subscription Strip */}
           <NewsletterStrip />
 

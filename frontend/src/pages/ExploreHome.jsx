@@ -284,7 +284,7 @@ const ExploreHome = () => {
   const displayedHackathons = liveHackathons.slice(0, 3);
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-transparent px-3 pt-2 pb-16 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full overflow-x-hidden bg-transparent px-3 pt-2 pb-4 sm:pb-8 lg:pb-12 sm:px-6 lg:px-8">
       {/* ========================================================================= */}
       {/* 1. HERO SLIDER CAROUSEL (Unstop Style) */}
       {/* ========================================================================= */}
@@ -433,7 +433,7 @@ const ExploreHome = () => {
       {/* ========================================================================= */}
       {/* 2. EXPLORE OPPORTUNITIES CATEGORY TILES (Unstop Grid) */}
       {/* ========================================================================= */}
-      <div className="mb-12">
+      <div className="mb-6 sm:mb-10 lg:mb-12">
         <div className="mb-5 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
             <span className="text-[11px] font-black uppercase tracking-wider text-indigo-600 dark:text-cyan-400">
@@ -481,7 +481,7 @@ const ExploreHome = () => {
       {/* ========================================================================= */}
       {/* 3. UNLOCK YOUR CAREER SECTION (Requested Signature Section) */}
       {/* ========================================================================= */}
-      <div className="mb-14">
+      <div className="mb-6 sm:mb-10 lg:mb-14">
         <div className="relative mb-8 text-center max-w-3xl mx-auto">
           <div className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-bold text-indigo-600 dark:text-cyan-400">
             <Target className="h-3.5 w-3.5" />
@@ -554,8 +554,8 @@ const ExploreHome = () => {
       {/* ========================================================================= */}
       {/* 4. FEATURED LIVE HACKATHONS PREVIEW */}
       {/* ========================================================================= */}
-      <div className="mb-14">
-        <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="mb-6 sm:mb-10 lg:mb-14">
+        <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2">
               <span className="flex h-2 w-2 rounded-full bg-rose-500 animate-ping" />
@@ -581,7 +581,7 @@ const ExploreHome = () => {
           {(displayedHackathons.length > 0 ? displayedHackathons : HERO_SLIDES.slice(0, 3)).map((hack, idx) => (
             <div
               key={hack._id || idx}
-              className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/80"
+              className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/80"
             >
               <div>
                 <div className="mb-3 flex items-center justify-between gap-2">
@@ -624,8 +624,8 @@ const ExploreHome = () => {
       {/* ========================================================================= */}
       {/* 5. FEATURED INTERNSHIPS PREVIEW */}
       {/* ========================================================================= */}
-      <div className="mb-14">
-        <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="mb-6 sm:mb-10 lg:mb-14">
+        <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2">
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
@@ -670,7 +670,7 @@ const ExploreHome = () => {
           ]).map((intern, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/80"
+              className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-950/80"
             >
               <div>
                 <div className="mb-3 flex items-center justify-between gap-2">
@@ -713,49 +713,49 @@ const ExploreHome = () => {
       {/* ========================================================================= */}
       {/* 6. IMPACT & PLATFORM METRICS NUMBERS (Unstop Trust Section) */}
       {/* ========================================================================= */}
-      <div className="mb-14 overflow-hidden rounded-3xl border border-indigo-500/20 bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-violet-600/10 p-6 sm:p-10 backdrop-blur-xl dark:border-indigo-500/30">
-        <div className="mb-8 text-center max-w-2xl mx-auto">
-          <span className="text-xs font-black uppercase tracking-widest text-indigo-600 dark:text-cyan-400">
+      <div className="mb-5 sm:mb-8 lg:mb-12 overflow-hidden rounded-3xl border border-indigo-500/20 bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-violet-600/10 p-4 sm:p-8 lg:p-10 backdrop-blur-xl dark:border-indigo-500/30">
+        <div className="mb-4 sm:mb-8 text-center max-w-2xl mx-auto">
+          <span className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-indigo-600 dark:text-cyan-400">
             Trusted by Top Talent & Global Enterprises
           </span>
-          <h2 className="mt-1 text-xl sm:text-3xl font-black text-slate-900 dark:text-white">
+          <h2 className="mt-1 text-lg sm:text-3xl font-black text-slate-900 dark:text-white">
             Connecting Talent, Colleges & Top Recruiters
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-          <div className="rounded-2xl border border-white/40 bg-white/70 p-4 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-            <span className="block text-2xl sm:text-4xl font-black text-indigo-600 dark:text-cyan-400">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-center">
+          <div className="rounded-2xl border border-white/40 bg-white/70 p-3 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+            <span className="block text-xl sm:text-4xl font-black text-indigo-600 dark:text-cyan-400">
               10M+
             </span>
-            <span className="mt-1 block text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+            <span className="mt-1 block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
               Active Learners
             </span>
           </div>
 
-          <div className="rounded-2xl border border-white/40 bg-white/70 p-4 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-            <span className="block text-2xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400">
+          <div className="rounded-2xl border border-white/40 bg-white/70 p-3 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+            <span className="block text-xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400">
               50,000+
             </span>
-            <span className="mt-1 block text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+            <span className="mt-1 block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
               Opportunities Hosted
             </span>
           </div>
 
-          <div className="rounded-2xl border border-white/40 bg-white/70 p-4 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-            <span className="block text-2xl sm:text-4xl font-black text-violet-600 dark:text-violet-400">
+          <div className="rounded-2xl border border-white/40 bg-white/70 p-3 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+            <span className="block text-xl sm:text-4xl font-black text-violet-600 dark:text-violet-400">
               2,500+
             </span>
-            <span className="mt-1 block text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+            <span className="mt-1 block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
               Hiring Partners
             </span>
           </div>
 
-          <div className="rounded-2xl border border-white/40 bg-white/70 p-4 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
-            <span className="block text-2xl sm:text-4xl font-black text-amber-600 dark:text-amber-400">
+          <div className="rounded-2xl border border-white/40 bg-white/70 p-3 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+            <span className="block text-xl sm:text-4xl font-black text-amber-600 dark:text-amber-400">
               ₹25 Cr+
             </span>
-            <span className="mt-1 block text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+            <span className="mt-1 block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
               Won in Bounties
             </span>
           </div>
@@ -765,28 +765,28 @@ const ExploreHome = () => {
       {/* ========================================================================= */}
       {/* 7. BOTTOM CALL TO ACTION BANNER */}
       {/* ========================================================================= */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-700 p-6 sm:p-12 text-white shadow-2xl text-center">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-700 p-5 sm:p-10 lg:p-12 text-white shadow-2xl text-center">
         <div className="absolute -right-12 -top-12 h-64 w-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
         <div className="absolute -left-12 -bottom-12 h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-4 py-1 text-xs font-bold backdrop-blur-md">
+          <div className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 sm:px-4 py-1 text-xs font-bold backdrop-blur-md">
             <Sparkles className="h-3.5 w-3.5" />
             <span>Join 10M+ Early-Career Professionals</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+          <h2 className="text-xl sm:text-4xl font-black tracking-tight leading-tight">
             Ready to Unlock Your Career?
           </h2>
 
-          <p className="mt-3 text-xs sm:text-base font-medium text-white/90">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-base font-medium text-white/90">
             Create your free account to access verified skill assessments, apply for high-stipend internships, and build software in global hackathons.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3 text-xs sm:text-sm font-black text-indigo-700 shadow-xl hover:bg-slate-100 transition active:scale-95"
+              className="inline-flex items-center gap-2 rounded-2xl bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-black text-indigo-700 shadow-xl hover:bg-slate-100 transition active:scale-95"
             >
               <span>Get Started for Free</span>
               <ArrowRight className="h-4 w-4" />
@@ -794,7 +794,7 @@ const ExploreHome = () => {
 
             <Link
               to="/jobs"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-5 py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/20 backdrop-blur-sm transition"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white hover:bg-white/20 backdrop-blur-sm transition"
             >
               <span>Explore All Jobs</span>
             </Link>
