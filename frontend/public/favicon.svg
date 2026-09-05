@@ -1,58 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background Badge: Vibrant Royal Sapphire Gradient (Zero Dark Black) -->
   <defs>
-    <!-- Ultra-vibrant royal indigo to electric cyan background -->
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#4338CA"/>
-      <stop offset="45%" stopColor="#2563EB"/>
-      <stop offset="100%" stopColor="#06B6D4"/>
+    <linearGradient id="pBadgeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="45%" stop-color="#1E40AF"/>
+      <stop offset="100%" stop-color="#0F172A"/>
     </linearGradient>
 
-    <!-- Top facet with bright glass reflection -->
-    <linearGradient id="pkWhiteGlow" x1="0" y1="0" x2="48" y2="24" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#FFFFFF"/>
-      <stop offset="100%" stopColor="#F0F9FF"/>
+    <!-- Top Ribbon Gradient: Pure Luminous White to Ice Blue -->
+    <linearGradient id="pWhiteGlow" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
     </linearGradient>
 
-    <!-- Inner counter gradient that matches the dynamic theme perfectly instead of dark cutout -->
-    <linearGradient id="pkInnerBevel" x1="16" y1="14" x2="30" y2="24" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#312E81"/>
-      <stop offset="100%" stopColor="#1E40AF"/>
+    <!-- Mid Twist Gradient: Vivid Electric Sky Cyan to Cobalt -->
+    <linearGradient id="pCyanFold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#2563EB"/>
     </linearGradient>
 
-    <!-- Glowing Cyan/Emerald dynamic pathway vector -->
-    <linearGradient id="pkNeonPath" x1="16" y1="36" x2="40" y2="10" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stopColor="#38BDF8"/>
-      <stop offset="50%" stopColor="#2DD4BF"/>
-      <stop offset="100%" stopColor="#34D399"/>
+    <!-- Lower Stem: Bright White to Aqua -->
+    <linearGradient id="pStem" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
     </linearGradient>
 
-    <!-- High-contrast crisp drop shadow -->
-    <filter id="pkDrop" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="1.5" floodColor="#1E1B4B" floodOpacity="0.4"/>
-    </filter>
+    <!-- Inner Triangle Play/Compass Cutout -->
+    <linearGradient id="pPlay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
   </defs>
 
-  <!-- Bright, eye-catching 3D Squircle Base Badge -->
-  <rect width="48" height="48" rx="14" fill="url(#bgGrad)"/>
+  <!-- 1. Squircle Base Badge (Rich Royal Sapphire Blue) -->
+  <rect width="512" height="512" rx="112" fill="url(#pBadgeBg)"/>
+  <rect x="3" y="3" width="506" height="506" rx="109" fill="none" stroke="#60A5FA" stroke-width="6" stroke-opacity="0.5"/>
+
+  <!-- 2. The 3D Ribbon 'P' Symbol (Pure Solid Vector Paths) -->
   
-  <!-- Subtle inner bevel highlight ring for 3D look -->
-  <rect x="1.5" y="1.5" width="45" height="45" rx="12.5" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1.5"/>
+  <!-- A. Inner Play-Arrow Triangle (Center Left) -->
+  <polygon points="145,160 280,240 145,310" fill="url(#pPlay)"/>
 
-  <!-- High-contrast crisp white 'P' (Path) Structure -->
-  <!-- Left Vertical Spine of 'P' -->
-  <rect x="10" y="10" width="7.5" height="28" rx="3.75" fill="url(#pkWhiteGlow)" filter="url(#pkDrop)"/>
+  <!-- B. Main Upper Curved White Ribbon (Sweeps around the entire right perimeter) -->
+  <!-- Top Bar & Right Loop -->
+  <path d="M110,80 L330,80 C410,80 455,130 455,215 C455,295 405,350 315,360 C260,366 235,395 235,420 L150,470 L150,310 C180,315 220,315 250,290 C325,230 375,215 375,175 C375,130 325,115 260,115 L170,115 Z" fill="url(#pWhiteGlow)"/>
 
-  <!-- Curved Head of 'P' -->
-  <path d="M14 10H26C31.5 10 35 13.8 35 18.5C35 23.2 31.5 27 26 27H14V10Z" fill="url(#pkWhiteGlow)" filter="url(#pkDrop)"/>
-  
-  <!-- Vibrant Blue Inner Hole of 'P' (NO BLACK ANYWHERE) -->
-  <path d="M17.5 15.5H25C27.5 15.5 29.5 16.8 29.5 18.5C29.5 20.2 27.5 21.5 25 21.5H17.5V15.5Z" fill="url(#pkInnerBevel)"/>
+  <!-- C. Dynamic Cyan Origami Twist Fold (The Blue Wave across the middle) -->
+  <path d="M145,310 C175,250 240,210 325,225 C375,235 400,215 415,175 C425,235 390,285 320,305 C250,325 185,305 145,310 Z" fill="url(#pCyanFold)"/>
 
-  <!-- 3D Neon "Khojo" Ascending Rocket/Pathway Arrow (Dynamic Overlay) -->
-  <path d="M20 37L37 20L32.5 16L17 31.5L20 37Z" fill="url(#pkNeonPath)" filter="url(#pkDrop)"/>
-  <path d="M37 20L41 10L31 14L34 17L37 20Z" fill="#34D399" filter="url(#pkDrop)"/>
-
-  <!-- Luminous Guiding North Star (Polaris) at Destination -->
-  <circle cx="41" cy="10" r="4.5" fill="#38BDF8" opacity="0.6"/>
-  <circle cx="41" cy="10" r="2.2" fill="#FFFFFF"/>
+  <!-- D. Lower Pillar Stem (Bottom Left Foot) -->
+  <path d="M145,310 C185,290 230,310 240,350 C245,370 240,395 235,420 L150,470 Z" fill="url(#pStem)"/>
 </svg>
