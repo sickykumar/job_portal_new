@@ -53,7 +53,7 @@ const issueAuthSession = (res, user, message = "Authenticated successfully", req
   if (user.role.toLowerCase() !== "admin") {
     sendEmail({
       to: user.email,
-      subject: `🛡️ Security Alert: New Login to your NexHire Account`,
+      subject: `🛡️ Security Alert: New Login to your PathKhojo Account`,
       html: loginSecurityAlertHTML({
         fullname: user.fullname,
         email: user.email,
@@ -711,7 +711,7 @@ export const googleAuth = async (req, res, next) => {
       }
       if (needsSave) await user.save();
 
-      return issueAuthSession(res, user, `Welcome back, ${user.fullname}!`);
+      return issueAuthSession(res, user, `Welcome back, ${user.fullname}!`, req);
     }
 
     // Register new candidate or recruiter via Google
@@ -726,10 +726,22 @@ export const googleAuth = async (req, res, next) => {
       },
     });
 
+    // Send Welcome & Greeting Email for new Google user in background
+    sendEmail({
+      to: user.email,
+      subject: `🎉 Welcome to PathKhojo, ${user.fullname}! Recommended next steps for you`,
+      html: registrationWelcomeHTML({
+        fullname: user.fullname,
+        email: user.email,
+        role: user.role,
+      }),
+    }).catch((err) => console.error("[Google Registration Welcome] Email failed:", err.message));
+
     return issueAuthSession(
       res,
       user,
-      `Account created successfully with Google! Welcome to NexHire, ${user.fullname}.`
+      `Account created successfully with Google! Welcome to PathKhojo, ${user.fullname}.`,
+      req
     );
   } catch (error) {
     next(error);
