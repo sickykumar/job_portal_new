@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
  * 
  * Design Concept:
  * - 3D Isometric Compass/Navigator + Upward Glowing Pathway ("P" & "K" fused)
- * - Beveled isometric planes with multi-layered depth, drop-shadows, and neon gradient lighting (Electric Indigo, Cyan & Emerald)
+ * - Beveled isometric planes with multi-layered depth, drop-shadows, and neon gradient lighting (Royal Blue, Electric Indigo, Cyan & Emerald)
  * - Modern typography: "Path" in geometric display font + "Khojo" in vivid vibrant gradient with subtle glowing aura.
  *
  * @param {string} size - 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -40,29 +40,29 @@ export const PathKhojoLogo = ({
       style={{ width: currentSize.icon, height: currentSize.icon }}
       className="relative flex items-center justify-center shrink-0 rounded-2xl bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-400 p-[1.5px] shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 group-hover:scale-105 transition-all duration-300"
     >
-      {/* 3D Surface Container: Deep vibrant indigo/slate with bright inner border */}
-      <div className="w-full h-full rounded-[14px] bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border border-white/20 flex items-center justify-center overflow-hidden relative shadow-inner">
+      {/* 3D Surface Container: Vibrant royal indigo/blue gradient (NO DULL BLACK) */}
+      <div className="w-full h-full rounded-[14px] bg-gradient-to-br from-indigo-900 via-blue-900 to-sky-950 border border-white/25 flex items-center justify-center overflow-hidden relative shadow-inner">
         {/* Luminous Center Highlight */}
-        <div className="absolute inset-0 bg-radial from-sky-400/25 via-indigo-500/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-radial from-cyan-400/30 via-indigo-500/15 to-transparent pointer-events-none" />
 
         <svg
           viewBox="0 0 48 48"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-[84%] h-[84%] relative z-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]"
+          className="w-[84%] h-[84%] relative z-10 drop-shadow-[0_4px_8px_rgba(30,27,75,0.5)]"
         >
           <defs>
-            {/* 3D Top Facet Gradient (Light reflection) */}
+            {/* 3D Top Facet Gradient (Bright white-cyan reflection) */}
             <linearGradient id="pkTop" x1="0" y1="0" x2="48" y2="24" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#38BDF8" />
-              <stop offset="50%" stopColor="#818CF8" />
-              <stop offset="100%" stopColor="#C084FC" />
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="40%" stopColor="#38BDF8" />
+              <stop offset="100%" stopColor="#818CF8" />
             </linearGradient>
 
-            {/* 3D Left Isometric Shadow Plane */}
+            {/* 3D Left Isometric Shadow Plane (Royal Indigo - not black) */}
             <linearGradient id="pkLeft" x1="6" y1="12" x2="24" y2="44" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stopColor="#4F46E5" />
-              <stop offset="100%" stopColor="#1E1B4B" />
+              <stop offset="100%" stopColor="#312E81" />
             </linearGradient>
 
             {/* 3D Right Isometric Pathway (Ascending Neon Beam) */}
@@ -81,7 +81,7 @@ export const PathKhojoLogo = ({
 
             {/* Filter for 3D Drop Shadow */}
             <filter id="pkShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#000" floodOpacity="0.4" />
+              <feDropShadow dx="1" dy="2" stdDeviation="1.5" floodColor="#1E1B4B" floodOpacity="0.4" />
             </filter>
           </defs>
 
@@ -89,7 +89,7 @@ export const PathKhojoLogo = ({
           <path
             d="M8 28L22 36L40 26L26 18L8 28Z"
             fill="url(#pkLeft)"
-            opacity="0.35"
+            opacity="0.45"
           />
 
           {/* 3D Isometric Pillar of 'P' (Vertical Backbone) */}
