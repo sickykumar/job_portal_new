@@ -1,4 +1,10 @@
 import nodemailer from "nodemailer";
+import dns from "node:dns";
+
+// Ensure Node.js resolves IPv4 first (prevents ENETUNREACH on cloud environments like Render)
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder("ipv4first");
+}
 
 /**
  * Gmail SMTP Transporter
@@ -7,7 +13,8 @@ import nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || "smtp.gmail.com",
   port: parseInt(process.env.SMTP_PORT || "465", 10),
-  secure: process.env.SMTP_SECURE === "true",
+  secure: process.env.SMTP_SECURE === "true" || process.env.SMTP_PORT === "465",
+  family: 4, // Force IPv4 to prevent ENETUNREACH on platforms without IPv6 support (e.g. Render)
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,

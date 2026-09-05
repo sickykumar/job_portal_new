@@ -34,7 +34,16 @@ import { automationRoute, interviewRoute } from "./automation/index.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
+import dns from "node:dns";
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder("ipv4first");
+}
+
 const app = express();
+
+// Trust reverse proxy (e.g. Render, Heroku, Nginx, Cloudflare)
+// Resolves ERR_ERL_UNEXPECTED_X_FORWARDED_FOR in express-rate-limit
+app.set("trust proxy", 1);
 
 // 1. Security HTTP Headers
 app.use(securityMiddleware);
