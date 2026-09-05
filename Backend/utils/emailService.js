@@ -1,3 +1,4 @@
+import { Resend } from "resend";
 import nodemailer from "nodemailer";
 import dns from "node:dns/promises";
 import net from "node:net";
@@ -17,32 +18,32 @@ import net from "node:net";
 
 let activeTransporter = null;
 let activePort = null;
+let resendClient = null;
+
+const getResendClient = () => {
+  if (!resendClient && process.env.RESEND_API_KEY) {
+    resendClient = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resendClient;
+};
 
 /**
  * Send email via Resend HTTPS API (Port 443 - zero port restrictions)
  */
 const sendViaResend = async ({ to, subject, html, text }) => {
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM || "PathKhojo Careers <onboarding@resend.dev>";
+  const client = getResendClient();
+  const from = process.env.RESEND_FROM || "PathKhojo <onboarding@resend.dev>";
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: Array.isArray(to) ? to : [to],
-      subject,
-      html,
-      ...(text && { text }),
-    }),
+  const { data, error } = await client.emails.send({
+    from,
+    to: Array.isArray(to) ? to : [to],
+    subject,
+    html,
+    ...(text && { text }),
   });
 
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error(data.message || `Resend API error (${response.status})`);
+  if (error) {
+    throw new Error(error.message || "Resend email delivery failed");
   }
 
   console.log(`[EmailService:Resend] Email sent to ${to} — Id: ${data.id}`);
