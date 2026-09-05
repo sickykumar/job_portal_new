@@ -403,6 +403,7 @@ const Navbar = ({ isCollapsed, onToggleCollapse, setMobileOpen }) => {
                         : "text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800/60"
                     }`}
                     title="Filter by City/Remote & Work Arrangement"
+                    aria-label="Filter by City and Work Arrangement"
                   >
                     <SlidersHorizontal className="w-3.5 h-3.5" />
                     {activeFilterCount > 0 && (
@@ -419,6 +420,7 @@ const Navbar = ({ isCollapsed, onToggleCollapse, setMobileOpen }) => {
                       onClick={handleClearSearch}
                       className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors p-0.5"
                       title="Clear search and filters"
+                      aria-label="Clear search and filters"
                     >
                       {searchLoading ? (
                         <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
@@ -776,8 +778,10 @@ const Navbar = ({ isCollapsed, onToggleCollapse, setMobileOpen }) => {
 
                 {/* Day / Night Theme Switcher */}
                 <button
+                  type="button"
                   onClick={toggleTheme}
                   title={isDark ? "Switch to Day Mode" : "Switch to Night Mode"}
+                  aria-label={isDark ? "Switch to Day Mode" : "Switch to Night Mode"}
                   className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
                 >
                   {isDark ? (
@@ -792,8 +796,10 @@ const Navbar = ({ isCollapsed, onToggleCollapse, setMobileOpen }) => {
               <>
                 {/* Theme Switcher */}
                 <button
+                  type="button"
                   onClick={toggleTheme}
                   title={isDark ? "Switch to Day Mode" : "Switch to Night Mode"}
+                  aria-label={isDark ? "Switch to Day Mode" : "Switch to Night Mode"}
                   className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
                 >
                   {isDark ? (
@@ -809,7 +815,9 @@ const Navbar = ({ isCollapsed, onToggleCollapse, setMobileOpen }) => {
                 {/* User Profile Avatar Pill & Dropdown */}
                 <div ref={profileRef} className="relative shrink-0">
                   <button
+                    type="button"
                     onClick={() => setProfileOpen(!profileOpen)}
+                    aria-label="Open User Profile Menu"
                     className="flex items-center gap-1 sm:gap-2 p-0.5 sm:px-2.5 sm:py-1 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-700 transition-all"
                   >
                     <Avatar user={user} />

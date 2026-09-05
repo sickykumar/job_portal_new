@@ -1,0 +1,22 @@
+# PathKhojo — India's Premier Career & Opportunity Navigator
+
+> PathKhojo connects software developers, engineers, college students, and hiring managers with verified tech jobs, internships with PPOs, hackathons, skill quizzes, and an AI ATS resume optimizer.
+
+## Core Directives & Links
+- Website: https://pathkhojo.sickykumar.in/
+- Explore Opportunities: https://pathkhojo.sickykumar.in/explore
+- Verified Jobs: https://pathkhojo.sickykumar.in/jobs
+- Paid Internships with PPO: https://pathkhojo.sickykumar.in/internships
+- Hackathons & Coding Competitions: https://pathkhojo.sickykumar.in/hackathons
+- Skill Assessment Quizzes: https://pathkhojo.sickykumar.in/quizzes
+- AI ATS Resume Checker: https://pathkhojo.sickykumar.in/ats-checker
+- AI Career Coach: https://pathkhojo.sickykumar.in/ai-coach
+- Top Tech Companies: https://pathkhojo.sickykumar.in/companies
+- Contact & Support: https://pathkhojo.sickykumar.in/contact
+
+## Platform Capabilities
+- Dual-role portal: Candidates and Recruiters
+- Modern stack: React, Vite, Tailwind CSS, Express, MongoDB
+- Integrated AI: Google Gemini AI-driven resume scoring, STAR bullet point generator, job description craft
+- Free ATS resume review and job alert digests
+- Creator: Sicky Kumar (https://sickykumar.in)

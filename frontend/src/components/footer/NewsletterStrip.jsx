@@ -63,12 +63,18 @@ const NewsletterStrip = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+          <label htmlFor="newsletter-email-input" className="sr-only">
+            Email address for job alerts and newsletter
+          </label>
           <input
+            id="newsletter-email-input"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
             placeholder="Enter your work or personal email"
+            aria-label="Enter your work or personal email"
+            autoComplete="email"
             className="w-full sm:w-80 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs sm:text-sm text-slate-900 outline-none transition focus:border-indigo-500 dark:border-slate-800 dark:bg-slate-900 dark:text-white disabled:opacity-50"
           />
           <button

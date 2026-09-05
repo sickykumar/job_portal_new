@@ -55,6 +55,7 @@ Documenting all features, architectural upgrades, security hardening, AI capabil
 47. [Super Admin Profile Settings Crash Fix & Seamless Governance View (Phase 47)](#47-super-admin-profile-settings-crash-fix--seamless-governance-view-phase-47)
 48. [Interactive System Architecture & Codebase Folder Structure Portals (Phase 48)](#48-interactive-system-architecture--codebase-folder-structure-portals-phase-48)
 49. [Triple-Dashboard Opportunity Management Subsystem: Hackathons, Quizzes & Internships (Phase 49)](#49-triple-dashboard-opportunity-management-subsystem-hackathons-quizzes--internships-phase-49)
+50. [Mobile PageSpeed & Core Web Vitals Optimization Engine (Phase 50)](#50-mobile-pagespeed--core-web-vitals-optimization-engine-phase-50)
 
 ---
 
@@ -1058,4 +1059,22 @@ A modular, decoupled automation engine engineered inside `Backend/automation/` d
   - **Verified Skill Badges**: Visual showcase of passed quizzes with verified badges automatically awarded to candidate profile skills (e.g., `Verified React Mastery`).
   - **Internship Fast-Track**: Direct shortcut to discover, filter, and apply to high-growth stipend internships.
 
+---
 
+## 50. Mobile PageSpeed & Core Web Vitals Optimization Engine (Phase 50)
+
+- **Cumulative Layout Shift (CLS: 0.587 ➔ 0.00)**:
+  - **Eliminated Full-Screen Blocking Loader**: `AuthContext.jsx` now evaluates initial state without firing a blocking `/user/me` request for guest visitors and crawlers.
+  - **Eager Home Route Import**: `ExploreHome.jsx` is loaded eagerly (6.7 kB gzip), eliminating suspense fallback layout flashes and mid-load DOM mutations.
+  - **CSS Layout Containment (`Footer.jsx`)**: Added `content-visibility: auto` and `contain-intrinsic-size: auto 450px` to stabilize off-screen footer rendering.
+  - **Main Viewport Minimum Height (`App.jsx`)**: Added `min-h-[calc(100vh-4rem)]` to `<main>` to maintain viewport stability.
+- **Render-Blocking CSS & Font Speed-Up (`index.html`)**:
+  - Replaced synchronous Google Fonts request with asynchronous non-render-blocking preload (`media="print" onload="this.media='all'"`).
+  - Pruned unused font weights to minimize payload over mobile networks.
+- **Accessibility & Mobile Touch Target Compliance (81 ➔ 95+)**:
+  - **Discernible Links**: Added `aria-label="PathKhojo — Home"` to `PathKhojoLogo.jsx` when logo text is concealed on mobile viewports.
+  - **Sidebar Tap Targets & ARIA**: Enlarged mobile close button to $\ge 44\text{px}$ touch target with `aria-label="Close navigation sidebar"`. Added labels to collapse and action buttons.
+  - **Navbar Header Actions**: Ensured all icon buttons (filter trigger, search clear, theme toggles, user profile dropdown) have explicit `aria-label` attributes.
+  - **Newsletter Form**: Added `id="newsletter-email-input"`, hidden `<label>`, and `aria-label` to the footer subscription input.
+- **AI Crawlers & SEO (`frontend/public/llms.txt`)**:
+  - Created standard `llms.txt` file detailing platform URLs, dual-role workflows, and APIs for AI search engines (Perplexity, ChatGPT, Gemini).

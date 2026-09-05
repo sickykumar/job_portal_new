@@ -120,19 +120,23 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, mobileOpen, setMobileOpen }) => 
 
           {/* Desktop Collapse/Expand Toggle Button (« / ») */}
           <button
+            type="button"
             onClick={toggleCollapse}
             title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-            className="hidden lg:flex items-center justify-center w-6 h-6 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors shrink-0"
+            aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+            className="hidden lg:flex items-center justify-center w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors shrink-0"
           >
-            {isCollapsed ? <ChevronsRight className="w-3.5 h-3.5" /> : <ChevronsLeft className="w-4 h-4" />}
+            {isCollapsed ? <ChevronsRight className="w-4 h-4" /> : <ChevronsLeft className="w-4 h-4" />}
           </button>
 
-          {/* Mobile Close Button */}
+          {/* Mobile Close Button (Compliant 44px+ touch target & explicit aria-label) */}
           <button
+            type="button"
             onClick={() => setMobileOpen(false)}
-            className="lg:hidden flex items-center justify-center w-7 h-7 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            aria-label="Close navigation sidebar"
+            className="lg:hidden flex items-center justify-center min-w-[44px] min-h-[44px] p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
@@ -162,8 +166,10 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, mobileOpen, setMobileOpen }) => 
             </button>
           ) : (
             <button
+              type="button"
               onClick={handlePrimaryCta}
-              title={role === "recruiter" ? "Post a Job" : "Explore Jobs"}
+              title={role === "recruiter" ? "Post a Job" : role === "admin" ? "Admin Panel" : "Explore Jobs"}
+              aria-label={role === "recruiter" ? "Post a Job" : role === "admin" ? "Admin Panel" : "Explore Jobs"}
               className="w-9 h-9 mx-auto rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white flex items-center justify-center shadow-sm transition-transform hover:scale-105 active:scale-95"
             >
               {role === "recruiter" ? (
@@ -498,8 +504,10 @@ const Sidebar = ({ isCollapsed, setIsCollapsed, mobileOpen, setMobileOpen }) => 
         ) : (
           <div className="p-2 border-t border-slate-100 dark:border-slate-800/60 flex flex-col items-center gap-2 flex-shrink-0">
             <button
+              type="button"
               onClick={() => navigate("/ats-checker")}
               title="ATS Resume Optimizer"
+              aria-label="ATS Resume Optimizer"
               className="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 flex items-center justify-center hover:scale-105 transition-transform"
             >
               <Sparkles className="w-4 h-4" />

@@ -5,13 +5,32 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem("user");
-    return saved ? JSON.parse(saved) : null;
+    try {
+      const saved = localStorage.getItem("user");
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
   });
-  const [loading, setLoading] = useState(true);
+
+  // Only start in loading state if there are existing credentials to verify
+  const [loading, setLoading] = useState(() => {
+    try {
+      return Boolean(localStorage.getItem("token") || localStorage.getItem("user"));
+    } catch {
+      return false;
+    }
+  });
 
   // Fetch current logged in user on mount to verify session
   useEffect(() => {
+    // Fast-path: If no credentials saved at all, exit immediately
+    const hasCreds = Boolean(localStorage.getItem("token") || localStorage.getItem("user"));
+    if (!hasCreds) {
+      setLoading(false);
+      return;
+    }
+
     const checkAuth = async () => {
       try {
         const res = await api.get("/user/me");

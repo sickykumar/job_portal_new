@@ -108,7 +108,7 @@ export const PathKhojoLogo = ({
 
   if (asLink) {
     return (
-      <Link to={to} className="inline-flex items-center">
+      <Link to={to} className="inline-flex items-center" aria-label="PathKhojo — Home">
         {content}
       </Link>
     );

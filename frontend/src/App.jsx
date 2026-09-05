@@ -14,8 +14,10 @@ import ProtectedRoute from "./components/common/ProtectedRoute";
 import PublicOnlyRoute from "./components/common/PublicOnlyRoute";
 import ServerWarmupBanner from "./components/common/ServerWarmupBanner";
 
-// Production Code-Splitting with React.lazy
-const ExploreHome = lazy(() => import("./pages/ExploreHome"));
+// Flagship Home Route (Eagerly imported to prevent layout shifts & suspense flashes on landing)
+import ExploreHome from "./pages/ExploreHome";
+
+// Production Code-Splitting with React.lazy for non-initial views
 const JobList = lazy(() => import("./pages/JobList"));
 const AppliedJobs = lazy(() => import("./pages/AppliedJobs"));
 const PostJob = lazy(() => import("./pages/PostJob"));
@@ -61,11 +63,6 @@ function MainContent() {
     return localStorage.getItem("pathkhojo_sidebar_collapsed") === "true";
   });
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-
-  // Initial Auth Check: Display Universal Cyber Loader
-  if (loading) {
-    return <UniversalLoader fullScreen={true} message="Initializing PathKhojo Career Portal..." />;
-  }
 
   // Hide massive marketing footer on all operating dashboards and admin consoles
   const isDashboardOrConsole =
@@ -125,8 +122,8 @@ function MainContent() {
           setMobileOpen={setMobileSidebarOpen}
         />
 
-        <main className="flex-1 w-full min-w-0 overflow-x-hidden">
-          <Suspense fallback={<UniversalLoader fullScreen={false} message="Loading view..." />}>
+        <main className="flex-1 w-full min-w-0 min-h-[calc(100vh-4rem)] overflow-x-hidden">
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center w-full"><UniversalLoader fullScreen={false} message="Loading view..." /></div>}>
             <Routes>
           {/* Open Public Routes */}
           <Route
