@@ -9,7 +9,7 @@ import app from "./app.js";
 import connectDB from "./utils/db.js";
 import { verifySmtp } from "./utils/emailService.js";
 import { initAutomationEngine, shutdownAutomationEngine } from "./automation/index.js";
-import { startKeepAlive, stopKeepAlive } from "./utils/keepAlive.js";
+// import { startKeepAlive, stopKeepAlive } from "./utils/keepAlive.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, ".env") });
@@ -25,8 +25,8 @@ const startServer = async () => {
   verifySmtp().catch(() => {});
   // Initialize Automated Recruiter/Candidate Automation Engine
   initAutomationEngine(app);
-  // Initialize Anti-Cold-Start Keep-Alive Heartbeat (10-min interval for Render / Free-tier)
-  startKeepAlive({ intervalMs: 10 * 60 * 1000 });
+  // Initialize Anti-Cold-Start Keep-Alive Heartbeat (Optional for Render / Free-tier)
+  // startKeepAlive({ intervalMs: 10 * 60 * 1000 });
   server = app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV || "development"} mode on port ${PORT}`);
   });
@@ -39,7 +39,7 @@ startServer();
 const handleShutdown = (signal) => {
   console.log(`Received ${signal}. Gracefully closing server...`);
   shutdownAutomationEngine();
-  stopKeepAlive();
+  // stopKeepAlive();
   if (server) {
     server.close(() => {
       console.log("HTTP server closed.");

@@ -12,7 +12,7 @@ import UniversalLoader from "./components/common/UniversalLoader";
 import GlobalErrorBoundary from "./components/common/GlobalErrorBoundary";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import PublicOnlyRoute from "./components/common/PublicOnlyRoute";
-import ServerWarmupBanner from "./components/common/ServerWarmupBanner";
+// import ServerWarmupBanner from "./components/common/ServerWarmupBanner";
 
 // Flagship Home Route (Eagerly imported to prevent layout shifts & suspense flashes on landing)
 import ExploreHome from "./pages/ExploreHome";
@@ -380,7 +380,7 @@ function MainContent() {
       {!isDashboardOrConsole && <Footer />}
 
       {/* Auto-warmup & Cold-start friendly detector banner */}
-      <ServerWarmupBanner />
+      {/* <ServerWarmupBanner /> */}
       </div>
     </div>
   );
