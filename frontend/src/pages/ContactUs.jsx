@@ -338,7 +338,7 @@ const ContactUs = () => {
                 <div>
                   <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Registered Office</p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    PathKhojo Platforms Technologies Pvt. Ltd.
+                    PathKhojo Platforms (Group 6 Project)
                   </p>
                   <p className="text-[10px] text-slate-400">Bengaluru, Karnataka — 560001, India</p>
                 </div>

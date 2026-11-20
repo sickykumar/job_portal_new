@@ -13,6 +13,7 @@ import GlobalErrorBoundary from "./components/common/GlobalErrorBoundary";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import PublicOnlyRoute from "./components/common/PublicOnlyRoute";
 import ServerWarmupBanner from "./components/common/ServerWarmupBanner";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 // Flagship Home Route (Eagerly imported to prevent layout shifts & suspense flashes on landing)
 import ExploreHome from "./pages/ExploreHome";
@@ -101,6 +102,9 @@ function MainContent() {
       className="min-h-screen w-full overflow-x-hidden transition-colors duration-200"
       style={{ backgroundColor: "var(--bg-primary)", color: "var(--text-primary)" }}
     >
+      {/* Auto Smooth Scroll-To-Top on Navigation */}
+      <ScrollToTop />
+
       {/* Fixed Left Sidebar (Unstop-style, globally visible) */}
       <Sidebar
         isCollapsed={sidebarCollapsed}

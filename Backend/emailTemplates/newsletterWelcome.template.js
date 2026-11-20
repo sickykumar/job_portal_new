@@ -96,7 +96,7 @@ export const newsletterWelcomeHTML = (email) => {
                 This email was sent to <strong>${email}</strong> because you subscribed to PathKhojo Tech Career Alerts.
               </p>
               <p style="margin:0; color:#cbd5e1; font-size:11px;">
-                © ${new Date().getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd. • All rights reserved.
+                © ${new Date().getFullYear()} PathKhojo Platforms • Group 6 College Project • All rights reserved.
               </p>
             </td>
           </tr>

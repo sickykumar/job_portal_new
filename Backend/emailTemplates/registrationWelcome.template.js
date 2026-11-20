@@ -155,7 +155,7 @@ export const registrationWelcomeHTML = ({ fullname, email, role }) => {
                 Welcome email sent to <strong>${email}</strong> &bull; PathKhojo Career Platform
               </p>
               <p style="margin:0; color:#475569; font-size:11px;">
-                © ${new Date().getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd. &bull; All rights reserved.
+                © ${new Date().getFullYear()} PathKhojo Platforms • Group 6 College Project &bull; All rights reserved.
               </p>
             </td>
           </tr>

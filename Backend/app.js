@@ -113,7 +113,7 @@ app.get("/", (req, res) => {
       <a href="/api/health" class="primary">Health Check</a>
       <a href="${process.env.CLIENT_URL || "http://localhost:5173"}" class="ghost" target="_blank">Frontend ↗</a>
     </div>
-    <p class="footer">© ${new Date().getFullYear()} PathKhojo — Built by Sicky Kumar</p>
+    <p class="footer">© ${new Date().getFullYear()} PathKhojo — Major Project by Group 6</p>
   </div>
 </body>
 </html>`);

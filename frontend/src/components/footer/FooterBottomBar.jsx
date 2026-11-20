@@ -10,22 +10,17 @@ import { Layers, FolderTree, Sliders } from "lucide-react";
 const FooterBottomBar = ({ onOpenLegal }) => {
   return (
     <div className="mt-12 pt-8 border-t border-slate-200/80 dark:border-slate-800/80 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 text-xs text-slate-500 dark:text-slate-400">
-      {/* Corporate Copyright & CIN */}
+      {/* Project Copyright & Team Credits */}
       <div className="space-y-1 text-center lg:text-left">
         <p className="font-bold text-slate-700 dark:text-slate-200 text-xs">
-          © {new Date().getFullYear()} PathKhojo Platforms Technologies Pvt. Ltd. All rights reserved.
+          © {new Date().getFullYear()} PathKhojo Platforms. All rights reserved.
         </p>
         <p className="text-[11px] text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
           Crafted & Engineered with ❤️ by{" "}
-          <a
-            href="https://sickykumar.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-indigo-600 hover:text-indigo-700 dark:text-cyan-400 dark:hover:text-cyan-300 underline underline-offset-2 transition"
-          >
-            Sicky Kumar
-          </a>{" "}
-          • Corporate Identity No: U72200KA2026PTC098765
+          <span className="font-bold text-indigo-600 dark:text-cyan-400">
+            Group 6
+          </span>{" "}
+          (Major College Project • 6 Teammates)
         </p>
       </div>
 
