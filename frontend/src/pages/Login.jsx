@@ -207,7 +207,7 @@ const Login = ({ onSuccess }) => {
 
               <p className="mx-auto max-w-sm text-xs leading-5 text-slate-500 sm:text-sm dark:text-slate-400">
                 {step === 2
-                  ? `Enter the 6-digit passcode sent to ${email}`
+                  ? `Enter the 6-digit passcode sent to ${email} (or test code 123456)`
                   : "Sign in to access opportunities, manage applications, and hire talent."}
               </p>
             </div>
